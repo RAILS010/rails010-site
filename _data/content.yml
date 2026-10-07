@@ -1,76 +1,80 @@
-# RAILS website text.
-# Edit this through Pages CMS (app.pagescms.org) rather than by hand.
-# In the longer text fields you can make a link like this: [Email us](mailto:hello@rails010.nl)
-
-seo_description: "RAILS is a student-run community in Rotterdam, hosting events and discussion groups on how advanced AI systems work and how to make them safe. No tech background needed."
-
 announcement:
   show: false
-  text: "Our first event is on 15 October. Come along!"
+  text: Our first event is on 15 October. Come along!
   link: "#events"
-
 hero:
-  full_name: "Rotterdam AI Literacy & Safety"
-  tagline: "Get to know AI and the risks that come with it."
-  intro: "We're a student-run community in Rotterdam dedicated to learning together how advanced AI systems work and how to make them safe. Bring your curiosity. No tech background needed!"
-  primary_button: "See upcoming events"
-  secondary_button: "Get involved"
-
+  full_name: Rotterdam AI Literacy & Safety
+  tagline: Get to know AI and the risks that come with it.
+  intro: We're a student-run community in Rotterdam dedicated to learning together
+    how advanced AI systems work and how to make them safe. Bring your
+    curiosity. No tech background needed!
+  primary_button: See upcoming events
+  secondary_button: Get involved
 why:
-  heading: "Why we exist"
+  heading: Why we exist
   paragraphs:
-    - text: "The people building the most advanced AI systems openly disagree about how risky they are. Some of them have quit their jobs over it. Meanwhile, most of us use these tools every day without much idea of how they work."
-    - text: "You shouldn't need a computer science degree to have a say in how AI develops, or to help make it go well. RAILS welcomes students from every background who want to learn more about this technology and help it turn out well for humanity."
+    - text: The people building the most advanced AI systems openly disagree about how
+        risky they are. Some of them have quit their jobs over it. Meanwhile,
+        most of us use these tools every day without much idea of how they work.
+    - text: You shouldn't need a computer science degree to have a say in how AI
+        develops, or to help make it go well. RAILS welcomes students from every
+        background who want to learn more about this technology and help it turn
+        out well for humanity.
   audiences:
-    - title: "Students at EUR"
-      text: "Bachelor's, master's or PhD, from any faculty."
-    - title: "Anyone in Rotterdam"
-      text: "Not at Erasmus? Most of our events are open to everyone. Bring a friend."
-
+    - title: Students at EUR
+      text: Bachelor's, master's or PhD, from any faculty.
+    - title: Anyone in Rotterdam
+      text: Not at Erasmus? Most of our events are open to everyone. Bring a friend.
 what_we_do:
-  heading: "What we do"
-  intro: "We run 1–2 events a month during the academic year."
+  heading: What we do
+  intro: We run 1–2 events a month during the academic year.
   formats:
-    - title: "Workshops"
-      text: "Learn what AI safety is and keep up with the latest in AI, including cases of AI systems going rogue."
+    - title: Workshops
+      text: Learn what AI safety is and keep up with the latest in AI, including cases
+        of AI systems going rogue.
       coming_soon: false
-    - title: "Speakers"
-      text: "Hear from researchers and professionals working on AI safety, from technical research to operations, then chat with them afterwards."
+    - title: Speakers
+      text: Hear from researchers and professionals working on AI safety, from
+        technical research to operations, then chat with them afterwards.
       coming_soon: false
-    - title: "Discussion groups"
-      text: "Read a paper or book together and talk it through. Groups meet weekly for a fixed number of weeks."
+    - title: Discussion groups
+      text: Read a paper or book together and talk it through. Groups meet weekly for
+        a fixed number of weeks.
       coming_soon: true
-
 events:
-  heading: "Upcoming events"
-  intro: "Every event is listed on Luma. Follow RAILS there to get an email whenever we post a new one."
-  luma_embed_url: ""
-  empty_message: "See what's coming up on our Luma page."
-  follow_button: "Follow RAILS on Luma"
-
+  heading: Upcoming events
+  intro: Every event is listed on Luma. Follow RAILS there to get an email
+    whenever we post a new one.
+  empty_message: See what's coming up on our Luma page.
+  follow_button: Follow RAILS on Luma
 get_involved:
-  heading: "Get involved"
+  heading: Get involved
   paths:
-    - title: "Come to an event"
-      text: "A low-commitment way to start getting involved in AI safety."
-      button_label: "See events"
+    - title: Come to an event
+      text: A low-commitment way to start getting involved in AI safety.
+      button_label: See events
       button_link: "#events"
-      button_colour: "pink"
-    - title: "Help run things"
-      text: "We're a small team, always looking for help with events, design, social media and outreach. [Email us](mailto:hello@rails010.nl) or [message us on Instagram](https://instagram.com/rails_010) and tell us what you'd like to do."
-      button_label: "Email us"
-      button_link: "mailto:hello@rails010.nl?subject=Helping%20out%20at%20RAILS"
-      button_colour: "white"
-    - title: "Give a talk"
-      text: "Do you research AI safety, or AI more broadly? We'd love to host an event with you."
-      button_label: "Pitch a talk"
-      button_link: "mailto:hello@rails010.nl?subject=Talk%20idea%20for%20RAILS"
-      button_colour: "white"
-
+      button_colour: pink
+    - title: Help run things
+      text: We're a small team, always looking for help with events, design, social
+        media and outreach. [Email us](mailto:hello@rails010.nl) or [message us
+        on Instagram](https://instagram.com/rails_010) and tell us what you'd
+        like to do.
+      button_label: Email us
+      button_link: mailto:hello@rails010.nl?subject=Helping%20out%20at%20RAILS
+      button_colour: white
+    - title: Give a talk
+      text: Do you research AI safety, or AI more broadly? We'd love to host an event
+        with you.
+      button_label: Pitch a talk
+      button_link: mailto:hello@rails010.nl?subject=Talk%20idea%20for%20RAILS
+      button_colour: white
 contact:
-  heading: "Say hi"
-  email: "hello@rails010.nl"
-  instagram_handle: "rails_010"
-  luma_url: "https://luma.com/user/rails010"
-
-footer_text: "Rotterdam AI Literacy & Safety. Made in 010."
+  heading: Say hi
+  email: hello@rails010.nl
+  instagram_handle: rails_010
+  luma_url: https://luma.com/user/rails010
+footer_text: Rotterdam AI Literacy & Safety. Made with 💗.
+seo_description: RAILS is a student-run community in Rotterdam, hosting events
+  and discussion groups on how advanced AI systems work and how to make them
+  safe. No tech background needed.
