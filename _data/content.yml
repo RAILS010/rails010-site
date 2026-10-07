@@ -68,7 +68,7 @@ get_involved:
     - title: Collaborate with us
       text: "Do you have an idea for an event on AI Safety? We'd love to hear from
         you. "
-      button_label: Pitch a talk
+      button_label: Collaborate
       button_link: mailto:hello@rails010.nl
       button_colour: white
 contact:
