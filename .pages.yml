@@ -117,7 +117,7 @@ content:
           - name: luma_embed_url
             label: Luma calendar embed link
             type: string
-            description: "Leave empty until RAILS has a Luma calendar. Then paste the link from Luma's embed code (it looks like https://luma.com/embed/calendar/cal-.../events)."
+            description: "In Luma, open your calendar (or a single event), choose Share, then Embed, and paste the code here. The whole <iframe> code is fine. Your profile link (luma.com/user/...) can NOT be embedded."
           - name: empty_message
             label: Text shown when there's no Luma calendar yet
             type: string

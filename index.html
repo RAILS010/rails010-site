@@ -263,8 +263,10 @@ section{padding-block:clamp(56px,9vw,104px)}
         <p>{{ c.events.intro | markdownify | remove: '<p>' | remove: '</p>' | strip }}</p>
       </div>
       <div class="luma px">
-        {%- if c.events.luma_embed_url != blank %}
-        <iframe src="{{ c.events.luma_embed_url | escape }}" title="Upcoming RAILS events on Luma" loading="lazy" allowfullscreen aria-hidden="false" tabindex="0"></iframe>
+        {%- assign luma_src = c.events.luma_embed_url | strip %}
+        {%- if luma_src contains 'src="' %}{% assign luma_src = luma_src | split: 'src="' | last | split: '"' | first %}{% endif %}
+        {%- if luma_src != blank and luma_src contains '/embed/' %}
+        <iframe src="{{ luma_src | escape }}" title="Upcoming RAILS events on Luma" loading="lazy" allowfullscreen aria-hidden="false" tabindex="0"></iframe>
         {%- else %}
         <div class="luma-placeholder"><strong>{{ c.events.empty_message | escape }}</strong></div>
         {%- endif %}
