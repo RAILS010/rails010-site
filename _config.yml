@@ -1,0 +1,4 @@
+title: "RAILS – Rotterdam AI Literacy & Safety"
+markdown: kramdown
+exclude:
+  - README.md

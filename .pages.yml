@@ -1,0 +1,186 @@
+# Tells Pages CMS (app.pagescms.org) which parts of the RAILS site are editable.
+content:
+  - name: site
+    label: Website text
+    type: file
+    path: _data/content.yml
+    fields:
+      - name: announcement
+        label: Announcement banner
+        type: object
+        description: A pink strip at the very top of the page. Switch it on for things like "First event on 15 October!"
+        fields:
+          - name: show
+            label: Show the banner
+            type: boolean
+          - name: text
+            label: Banner text
+            type: string
+          - name: link
+            label: Banner link (optional)
+            type: string
+            description: "Where clicking the banner goes. Use #events to jump to the events section, or paste a full https:// link."
+
+      - name: hero
+        label: Top of the page
+        type: object
+        fields:
+          - name: full_name
+            label: Full name (small heading)
+            type: string
+          - name: tagline
+            label: Big tagline
+            type: string
+            description: Keep it short, roughly 6 to 10 words. Longer text will push the animation down.
+          - name: intro
+            label: Intro text
+            type: text
+          - name: primary_button
+            label: Pink button text (goes to events)
+            type: string
+          - name: secondary_button
+            label: White button text (goes to Get involved)
+            type: string
+
+      - name: why
+        label: Why we exist
+        type: object
+        fields:
+          - name: heading
+            label: Heading
+            type: string
+          - name: paragraphs
+            label: Paragraphs
+            type: object
+            list:
+              collapsible:
+                collapsed: true
+                summary: "Paragraph {index}"
+            fields:
+              - name: text
+                label: Text
+                type: text
+          - name: audiences
+            label: Who it's for (list with flowers)
+            type: object
+            list:
+              collapsible:
+                collapsed: true
+                summary: "{title}"
+            fields:
+              - name: title
+                label: Title
+                type: string
+              - name: text
+                label: Text
+                type: text
+
+      - name: what_we_do
+        label: What we do
+        type: object
+        fields:
+          - name: heading
+            label: Heading
+            type: string
+          - name: intro
+            label: Intro line
+            type: text
+          - name: formats
+            label: Event formats (coloured boxes)
+            type: object
+            description: Colours rotate pink, white, light blue in order. Three boxes fit best in one row.
+            list:
+              collapsible:
+                collapsed: true
+                summary: "{title}"
+            fields:
+              - name: title
+                label: Title
+                type: string
+              - name: text
+                label: Text
+                type: text
+              - name: coming_soon
+                label: Show "Coming soon" sticker
+                type: boolean
+
+      - name: events
+        label: Events section
+        type: object
+        fields:
+          - name: heading
+            label: Heading
+            type: string
+          - name: intro
+            label: Intro text
+            type: text
+          - name: luma_embed_url
+            label: Luma calendar embed link
+            type: string
+            description: "Leave empty until RAILS has a Luma calendar. Then paste the link from Luma's embed code (it looks like https://luma.com/embed/calendar/cal-.../events)."
+          - name: empty_message
+            label: Text shown when there's no Luma calendar yet
+            type: string
+          - name: follow_button
+            label: Luma button text
+            type: string
+
+      - name: get_involved
+        label: Get involved
+        type: object
+        fields:
+          - name: heading
+            label: Heading
+            type: string
+          - name: paths
+            label: Ways to get involved
+            type: object
+            list:
+              collapsible:
+                collapsed: true
+                summary: "{title}"
+            fields:
+              - name: title
+                label: Title
+                type: string
+              - name: text
+                label: Text
+                type: text
+              - name: button_label
+                label: Button text
+                type: string
+              - name: button_link
+                label: Button link
+                type: string
+                description: "#events jumps to a section; mailto:hello@rails010.nl opens an email; or paste a full https:// link."
+              - name: button_colour
+                label: Button colour
+                type: select
+                options:
+                  values: [pink, white, blue]
+
+      - name: contact
+        label: Contact
+        type: object
+        fields:
+          - name: heading
+            label: Heading
+            type: string
+          - name: email
+            label: Email address
+            type: string
+          - name: instagram_handle
+            label: Instagram handle (without @)
+            type: string
+          - name: luma_url
+            label: Luma profile link
+            type: string
+
+      - name: footer_text
+        label: Footer text
+        type: string
+
+      - name: seo_description
+        label: Google description
+        type: text
+        description: The short summary Google and link previews show under the site's name. About 150 characters.

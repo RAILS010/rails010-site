@@ -1,0 +1,513 @@
+---
+# This page's layout and animation. The words live in _data/content.yml (edit them in Pages CMS).
+---
+{%- assign c = site.data.content -%}
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+<title>RAILS – Rotterdam AI Literacy &amp; Safety</title>
+<meta name="description" content="{{ c.seo_description | escape }}">
+<meta property="og:title" content="RAILS – Rotterdam AI Literacy &amp; Safety">
+<meta property="og:description" content="{{ c.seo_description | escape }}">
+<meta property="og:type" content="website">
+<meta name="theme-color" content="#DFF1FD">
+<link rel="icon" type="image/png" href="assets/rails-wordmark.png">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@500;700&family=Figtree:wght@400;500;600&display=swap">
+<style>
+/* Layout: one left-aligned column, max ~1080px. Sky blue leads; sections alternate light and deeper sky, pink is the accent.
+   Signature: the logo's thick cocoa outline with notched pixel corners, reused on buttons and blocks.
+   Single light look by choice: no dark backgrounds anywhere. */
+:root{
+  --bg:#DFF1FD;
+  --bg-tint:#C9E7FB;
+  --bg-blue:#AEDAF8;
+  --bg-pink:#FCE2EA;
+  --sky:#8FCBF3;
+  --sky-hover:#A9D8F7;
+  --ink:#4A3A38;
+  --ink-soft:#54433F;
+  --line:#614F4D;
+  --pink:#F2AEBD;
+  --blue:#5D86C6;
+  --paper:#FFFFFF;
+  --focus:#4A3A38;
+  --rule:#614F4D;
+  --font-display:"Space Grotesk",ui-sans-serif,system-ui,sans-serif;
+  --font-body:"Figtree",ui-sans-serif,system-ui,-apple-system,"Segoe UI",sans-serif;
+  --step-0:1.0625rem;
+  --step-1:1.3rem;
+  --step-2:1.7rem;
+  --step-3:clamp(2rem,4.6vw,3.1rem);
+  --step-4:clamp(2.35rem,6.4vw,4.4rem);
+  --b:3px;
+  --s:7px;
+  --notch:polygon(var(--s) 0,calc(100% - var(--s)) 0,calc(100% - var(--s)) var(--s),100% var(--s),100% calc(100% - var(--s)),calc(100% - var(--s)) calc(100% - var(--s)),calc(100% - var(--s)) 100%,var(--s) 100%,var(--s) calc(100% - var(--s)),0 calc(100% - var(--s)),0 var(--s),var(--s) var(--s));
+  color-scheme:light;
+}
+
+*,*::before,*::after{box-sizing:border-box}
+[hidden]{display:none!important}
+html{scroll-behavior:smooth}
+@media (prefers-reduced-motion: reduce){html{scroll-behavior:auto}*{transition:none!important;animation:none!important}}
+body{margin:0;background:var(--bg);color:var(--ink);font-family:var(--font-body);font-size:var(--step-0);line-height:1.6;-webkit-font-smoothing:antialiased;padding-top:env(safe-area-inset-top,0px);padding-bottom:env(safe-area-inset-bottom,0px)}
+img{max-width:100%;height:auto;display:block}
+main{overflow-x:clip}
+a{color:var(--ink);text-underline-offset:.18em;text-decoration-thickness:2px}
+a:hover{text-decoration-thickness:3px;text-decoration-color:var(--pink)}
+:focus-visible{outline:3px solid var(--focus);outline-offset:3px}
+h1,h2,h3{font-family:var(--font-display);font-weight:700;line-height:1.08;letter-spacing:-.015em;margin:0;text-wrap:balance}
+h2{font-size:var(--step-3)}
+h3{font-size:var(--step-1);letter-spacing:-.005em}
+p{margin:0}
+.sr-only{position:absolute;width:1px;height:1px;padding:0;margin:-1px;overflow:hidden;clip:rect(0 0 0 0);white-space:nowrap;border:0}
+
+.wrap{max-width:1080px;margin-inline:auto;padding-inline:clamp(16px,4vw,40px)}
+section{padding-block:clamp(56px,9vw,104px)}
+.band-tint{background:var(--bg-tint)}
+.band-blue{background:var(--bg-blue)}
+.band-pink{background:var(--bg-pink)}
+
+/* announcement banner (switched on/off in Pages CMS) */
+.banner{background:var(--pink);border-bottom:var(--b) solid var(--line);font-family:var(--font-display);font-weight:700;color:#3B2E2C}
+.banner .wrap{padding-block:10px;text-align:center}
+.banner a{color:#3B2E2C}
+
+/* header */
+.site-head{padding-block:18px}
+.site-head .wrap{display:flex;align-items:center;justify-content:space-between;gap:16px;flex-wrap:wrap}
+.home-link{display:block;width:104px}
+.site-nav{display:flex;gap:clamp(14px,3vw,28px);flex-wrap:wrap}
+.site-nav a{font-family:var(--font-display);font-weight:500;color:var(--ink);text-decoration:none;font-size:1rem}
+.site-nav a:hover{text-decoration:underline;text-decoration-color:var(--pink);text-decoration-thickness:3px}
+
+/* pixel-notch outlined shape */
+.px{position:relative;isolation:isolate;clip-path:var(--notch);background:var(--line)}
+.px::before{content:"";position:absolute;inset:var(--b);clip-path:var(--notch);background:var(--fill,var(--paper));z-index:-1;transition:background .15s ease}
+
+/* buttons */
+.btn{--fill:var(--pink);display:inline-flex;align-items:center;gap:.5em;padding:.8em 1.25em;font-family:var(--font-display);font-weight:700;font-size:1.05rem;color:#3B2E2C;text-decoration:none;transition:transform .15s ease}
+.btn:hover{transform:translate(-2px,-2px);text-decoration:none}
+.btn:hover::before{--fill:#F7C3CF}
+.btn:active{transform:translate(1px,1px)}
+.btn.sky{--fill:var(--sky);color:var(--ink)}
+.btn.sky:hover::before{--fill:var(--sky-hover)}
+.btn.plain{--fill:var(--paper);color:var(--ink)}
+.btn.plain:hover::before{--fill:var(--bg-tint)}
+.btn svg{width:1em;height:1em;flex:none}
+
+/* hero: text left, animation right on desktop; stacked on phones */
+.hero{padding-block:clamp(20px,4vw,48px) clamp(48px,7vw,80px)}
+.hero .wrap{display:grid;gap:clamp(28px,4vw,48px);align-items:center}
+@media (min-width:960px){.hero .wrap{grid-template-columns:minmax(0,1.05fr) minmax(0,1fr)}}
+.hero-text{display:grid;gap:20px;align-content:start}
+.fullname{text-wrap:balance;font-family:var(--font-display);font-weight:700;font-size:clamp(1.55rem,2.7vw,2.3rem);line-height:1.1;letter-spacing:-.015em;color:var(--ink-soft)}
+.lede{font-family:var(--font-display);font-weight:700;font-size:clamp(2.1rem,4.3vw,3.35rem);max-width:16ch;letter-spacing:-.025em;line-height:1.04}
+.lede-sub{font-size:var(--step-1);max-width:44ch;line-height:1.5;color:var(--ink)}
+.actions{display:flex;gap:14px;flex-wrap:wrap;margin-top:6px}
+.scene{position:relative;width:100%}
+.scene canvas{display:block;width:100%;height:auto;aspect-ratio:160/100;image-rendering:crisp-edges;image-rendering:pixelated}
+.scene-toggle{--fill:var(--paper);--s:4px;position:absolute;top:10px;right:10px;width:36px;height:36px;display:grid;place-items:center;border:0;padding:0;cursor:pointer;color:var(--ink)}
+.scene-toggle:hover::before{--fill:var(--bg-tint)}
+.scene-toggle svg{width:14px;height:14px}
+
+/* section intro */
+.intro{display:grid;gap:14px;max-width:60ch;margin-bottom:clamp(32px,5vw,48px)}
+.intro p{color:var(--ink);font-size:var(--step-1);line-height:1.45}
+.soon{justify-self:start;display:inline-block;font-family:var(--font-display);font-weight:700;font-size:.8em;color:#3B2E2C;background:var(--pink);border:2px solid var(--line);padding:0 .45em;margin-right:.35em;transform:rotate(-2deg);vertical-align:.08em}
+
+/* formats */
+.formats{display:grid;grid-template-columns:minmax(0,1fr);gap:20px}
+@media (min-width:760px){.formats{grid-template-columns:repeat(3,minmax(0,1fr))}}
+.format{padding:26px 26px 28px;display:grid;gap:10px;align-content:start}
+.format:nth-child(3n+1){--fill:var(--pink)}
+.format:nth-child(3n+2){--fill:var(--paper)}
+.format:nth-child(3n+3){--fill:var(--bg)}
+.format:nth-child(3n+1),.format:nth-child(3n+1) p{color:#3B2E2C}
+.format:nth-child(3n+3),.format:nth-child(3n+3) p{color:var(--ink)}
+.format p{color:var(--ink-soft)}
+
+/* why */
+.why{display:grid;grid-template-columns:minmax(0,1fr);gap:clamp(28px,5vw,64px)}
+@media (min-width:860px){.why{grid-template-columns:minmax(0,1.1fr) minmax(0,1fr)}}
+.why-text{display:grid;gap:18px;max-width:58ch}
+.why-text p{font-size:var(--step-0)}
+.who{list-style:none;margin:0;padding:0;display:grid;gap:22px;align-content:start}
+.who li{display:grid;grid-template-columns:28px minmax(0,1fr);gap:14px;align-items:start}
+.who strong{font-family:var(--font-display);font-weight:700;display:block;font-size:var(--step-1);line-height:1.2;margin-bottom:2px}
+.who span{color:var(--ink-soft)}
+.flower{width:26px;height:26px;margin-top:2px;color:var(--line)}
+.flower .petal{fill:var(--blue)}
+.who li:nth-child(even) .flower .petal{fill:var(--pink)}
+.flower .rim{fill:var(--line)}
+
+/* events */
+.luma{--fill:var(--paper);--s:9px;padding:calc(var(--b) + 4px)}
+.luma iframe{display:block;width:100%;height:450px;border:0;background:var(--paper)}
+.luma-placeholder{display:grid;place-items:center;text-align:center;gap:8px;min-height:200px;padding:24px;color:var(--ink-soft)}
+.luma-placeholder strong{font-family:var(--font-display);color:var(--ink);font-size:var(--step-1)}
+.follow{margin-top:20px}
+
+/* get involved */
+.paths{display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,260px),1fr));gap:clamp(24px,4vw,40px)}
+.path{display:grid;gap:10px;grid-template-rows:auto 1fr auto;padding-top:18px;border-top:var(--b) solid var(--rule)}
+.path p{color:var(--ink-soft)}
+.path .btn{justify-self:start;margin-top:6px}
+.btn.small{font-size:.98rem;padding:.65em 1.05em}
+
+/* contact */
+.contact{display:grid;gap:22px}
+.email{justify-self:start;font-family:var(--font-display);font-weight:700;font-size:clamp(1.6rem,5.4vw,3rem);letter-spacing:-.02em;color:var(--ink);text-decoration:none;overflow-wrap:anywhere;user-select:all}
+.email:hover{text-decoration:underline;text-decoration-color:var(--pink)}
+.socials{display:flex;gap:12px;flex-wrap:wrap}
+
+/* footer */
+.site-foot{padding-block:36px;border-top:var(--b) solid var(--rule)}
+.site-foot .wrap{display:flex;justify-content:space-between;gap:12px 24px;flex-wrap:wrap;align-items:center;color:var(--ink-soft);font-size:.95rem}
+.site-foot img{width:72px}
+</style>
+</head>
+<body>
+
+{%- if c.announcement.show and c.announcement.text != blank %}
+<div class="banner">
+  <div class="wrap">{% if c.announcement.link != blank %}<a href="{{ c.announcement.link | escape }}">{{ c.announcement.text | escape }}</a>{% else %}{{ c.announcement.text | escape }}{% endif %}</div>
+</div>
+{%- endif %}
+
+<header class="site-head">
+  <div class="wrap">
+    <a class="home-link" href="#top" aria-label="RAILS home"><img src="assets/rails-wordmark.png" width="900" height="303" alt="RAILS"></a>
+    <nav class="site-nav" aria-label="Main">
+      <a href="#what-we-do">What we do</a>
+      <a href="#events">Events</a>
+      <a href="#get-involved">Get involved</a>
+      <a href="#contact">Contact</a>
+    </nav>
+  </div>
+</header>
+
+<main id="top">
+  <section class="hero">
+    <div class="wrap">
+      <div class="hero-text">
+        <h1 class="sr-only">RAILS – Rotterdam AI Literacy &amp; Safety</h1>
+        <p class="fullname">{{ c.hero.full_name | escape }}</p>
+        <p class="lede">{{ c.hero.tagline | escape }}</p>
+        <p class="lede-sub">{{ c.hero.intro | markdownify | remove: '<p>' | remove: '</p>' | strip }}</p>
+        <div class="actions">
+          <a class="btn px" href="#events">{{ c.hero.primary_button | escape }}</a>
+          <a class="btn plain px" href="#get-involved">{{ c.hero.secondary_button | escape }}</a>
+        </div>
+      </div>
+      <div class="scene">
+        <canvas id="train" width="160" height="100" role="img" aria-label="Pixel animation: a little train drives along the track, flies off the broken end of the rails and lands in the river."></canvas>
+        <button class="scene-toggle px" id="train-toggle" type="button" aria-label="Pause animation" title="Pause animation" hidden>
+          <svg class="i-pause" viewBox="0 0 14 14" aria-hidden="true"><rect x="2" y="1" width="3.5" height="12" fill="currentColor"/><rect x="8.5" y="1" width="3.5" height="12" fill="currentColor"/></svg>
+          <svg class="i-play" viewBox="0 0 14 14" aria-hidden="true" hidden><path d="M3 1v12l10-6z" fill="currentColor"/></svg>
+        </button>
+      </div>
+    </div>
+  </section>
+
+  <section class="band-pink" id="why">
+    <div class="wrap why">
+      <div class="why-text">
+        <h2>{{ c.why.heading | escape }}</h2>
+        {%- for p in c.why.paragraphs %}
+        <p>{{ p.text | markdownify | remove: '<p>' | remove: '</p>' | strip }}</p>
+        {%- endfor %}
+      </div>
+      <ul class="who" aria-label="Who RAILS is for">
+        {%- for a in c.why.audiences %}
+        <li>
+          <svg class="flower" viewBox="0 0 26 26" aria-hidden="true"><g class="rim"><circle cx="13" cy="6.5" r="6"/><circle cx="19.5" cy="13" r="6"/><circle cx="13" cy="19.5" r="6"/><circle cx="6.5" cy="13" r="6"/></g><g class="petal"><circle cx="13" cy="6.5" r="3.6"/><circle cx="19.5" cy="13" r="3.6"/><circle cx="13" cy="19.5" r="3.6"/><circle cx="6.5" cy="13" r="3.6"/><circle cx="13" cy="13" r="4"/></g></svg>
+          <div><strong>{{ a.title | escape }}</strong><span>{{ a.text | markdownify | remove: '<p>' | remove: '</p>' | strip }}</span></div>
+        </li>
+        {%- endfor %}
+      </ul>
+    </div>
+  </section>
+
+  <section class="band-blue" id="what-we-do">
+    <div class="wrap">
+      <div class="intro">
+        <h2>{{ c.what_we_do.heading | escape }}</h2>
+        {%- if c.what_we_do.intro != blank %}
+        <p>{{ c.what_we_do.intro | markdownify | remove: '<p>' | remove: '</p>' | strip }}</p>
+        {%- endif %}
+      </div>
+      <div class="formats">
+        {%- for f in c.what_we_do.formats %}
+        <article class="format px">
+          {%- if f.coming_soon %}
+          <span class="soon">Coming soon</span>
+          {%- endif %}
+          <h3>{{ f.title | escape }}</h3>
+          <p>{{ f.text | markdownify | remove: '<p>' | remove: '</p>' | strip }}</p>
+        </article>
+        {%- endfor %}
+      </div>
+    </div>
+  </section>
+
+  <section id="events">
+    <div class="wrap">
+      <div class="intro">
+        <h2>{{ c.events.heading | escape }}</h2>
+        <p>{{ c.events.intro | markdownify | remove: '<p>' | remove: '</p>' | strip }}</p>
+      </div>
+      <div class="luma px">
+        {%- if c.events.luma_embed_url != blank %}
+        <iframe src="{{ c.events.luma_embed_url | escape }}" title="Upcoming RAILS events on Luma" loading="lazy" allowfullscreen aria-hidden="false" tabindex="0"></iframe>
+        {%- else %}
+        <div class="luma-placeholder"><strong>{{ c.events.empty_message | escape }}</strong></div>
+        {%- endif %}
+      </div>
+      <div class="follow"><a class="btn sky px" href="{{ c.contact.luma_url | escape }}" target="_blank" rel="noopener">{{ c.events.follow_button | escape }}</a></div>
+    </div>
+  </section>
+
+  <section class="band-tint" id="get-involved">
+    <div class="wrap">
+      <div class="intro">
+        <h2>{{ c.get_involved.heading | escape }}</h2>
+      </div>
+      <div class="paths">
+        {%- for p in c.get_involved.paths %}
+        <div class="path">
+          <h3>{{ p.title | escape }}</h3>
+          <p>{{ p.text | markdownify | remove: '<p>' | remove: '</p>' | strip }}</p>
+          {%- if p.button_label != blank and p.button_link != blank %}
+          <a class="btn small {% if p.button_colour == 'white' %}plain {% elsif p.button_colour == 'blue' %}sky {% endif %}px" href="{{ p.button_link | escape }}"{% unless p.button_link contains '#' or p.button_link contains 'mailto:' %} target="_blank" rel="noopener"{% endunless %}>{{ p.button_label | escape }}</a>
+          {%- endif %}
+        </div>
+        {%- endfor %}
+      </div>
+    </div>
+  </section>
+
+  <section class="band-pink" id="contact">
+    <div class="wrap contact">
+      <h2>{{ c.contact.heading | escape }}</h2>
+      <a class="email" href="mailto:{{ c.contact.email | escape }}">{{ c.contact.email | escape }}</a>
+      <div class="socials">
+        {%- if c.contact.instagram_handle != blank %}
+        <a class="btn plain px" href="https://instagram.com/{{ c.contact.instagram_handle | remove: '@' | escape }}" target="_blank" rel="noopener">Instagram @{{ c.contact.instagram_handle | remove: '@' | escape }}</a>
+        {%- endif %}
+        {%- if c.contact.luma_url != blank %}
+        <a class="btn plain px" href="{{ c.contact.luma_url | escape }}" target="_blank" rel="noopener">Luma</a>
+        {%- endif %}
+      </div>
+    </div>
+  </section>
+</main>
+
+<footer class="site-foot">
+  <div class="wrap">
+    <img src="assets/rails-wordmark.png" width="900" height="303" alt="RAILS">
+    <span>{{ c.footer_text | escape }}</span>
+  </div>
+</footer>
+
+{% raw %}
+<script>
+(function(){
+  var canvas=document.getElementById('train');
+  if(!canvas||!canvas.getContext) return;
+  var toggle=document.getElementById('train-toggle');
+  var ctx=canvas.getContext('2d');
+
+  var C={line:'#614F4D',pink:'#F2AEBD',blue:'#5D86C6',white:'#FFFFFF',sleeper:'#A88C86',
+         ground:'#F9D3DC',groundDot:'#F2BCC9',cloud:'#FFFFFF',city:'#CBE7FB',bridge:'#A9D6F5',
+         water:'#9DD2F5',wave:'#FFFFFF'};
+  var W=160, H=100, RAIL=60, CLIFF=98, LAUNCH=95, RAMP0=84, WATER=86;
+  var SPEED=46, G=230, SPIN=9, HEAD0=45, REST_HOLD=1.9;
+
+  function rect(g,x,y,w,h,c){g.fillStyle=c;g.fillRect(x,y,w,h)}
+  function box(g,x,y,w,h,fill){rect(g,x,y,w,h,C.line);rect(g,x+1,y+1,w-2,h-2,fill)}
+  function wheel(g,cx,cy){rect(g,cx-2,cy-1,5,3,C.line);rect(g,cx-1,cy-2,3,5,C.line);rect(g,cx,cy,1,1,C.pink)}
+  function glyph(g,x,y,rows,c){for(var r=0;r<rows.length;r++)for(var k=0;k<rows[r].length;k++)if(rows[r][k]==='#')rect(g,x+k,y+r,1,1,c)}
+  function line(g,x0,y0,x1,y1,c){ // Bresenham
+    var dx=Math.abs(x1-x0),sx=x0<x1?1:-1,dy=-Math.abs(y1-y0),sy=y0<y1?1:-1,err=dx+dy;
+    for(;;){rect(g,x0,y0,1,1,c);if(x0===x1&&y0===y1)break;var e2=2*err;if(e2>=dy){err+=dy;x0+=sx}if(e2<=dx){err+=dx;y0+=sy}}
+  }
+  function sprite(w,h,draw){var s=document.createElement('canvas');s.width=w;s.height=h;var g=s.getContext('2d');draw(g);return s}
+
+  var loco=sprite(32,19,function(g){
+    rect(g,0,12,3,1,C.line);
+    box(g,2,4,11,11,C.pink);
+    rect(g,1,3,13,2,C.line);
+    box(g,4,6,6,4,C.white);
+    box(g,12,7,16,8,C.blue);
+    rect(g,15,9,10,1,C.white);              // boiler band
+    box(g,22,2,4,6,C.line);
+    rect(g,21,1,6,2,C.line);
+    rect(g,28,10,2,3,C.line);
+    rect(g,26,15,4,1,C.line);rect(g,27,16,4,1,C.line);
+    rect(g,2,14,26,2,C.line);
+    wheel(g,6,16);wheel(g,14,16);wheel(g,23,16);
+  });
+  function carriage(fill){
+    return sprite(26,19,function(g){
+      rect(g,0,12,3,1,C.line);
+      box(g,2,5,22,10,fill);
+      rect(g,1,4,24,2,C.line);
+      box(g,4,7,5,4,C.white);box(g,10,7,5,4,C.white);box(g,16,7,5,4,C.white);
+      rect(g,2,14,22,2,C.line);
+      wheel(g,7,16);wheel(g,19,16);
+    });
+  }
+  // air: how far each piece flies; rest: angle it ends up at in the river
+  var units=[
+    {img:loco,len:30,chimney:24,air:1.35,rest:1.95},
+    {img:carriage(C.blue),len:24,air:1.05,rest:0.5},
+    {img:carriage(C.pink),len:24,air:0.8,rest:-0.4}
+  ];
+  (function(){var off=0;for(var i=0;i<units.length;i++){units[i].back=off+units[i].len/2;off+=units[i].len+1}})();
+
+  canvas.width=W;canvas.height=H;canvas.style.aspectRatio=W+' / '+H;
+  ctx.imageSmoothingEnabled=false;
+
+  function trackY(x){if(x<RAMP0)return RAIL;var u=(x-RAMP0)/(LAUNCH-RAMP0);return RAIL-5*u*u}
+  function slope(x){if(x<RAMP0)return 0;return -10*(x-RAMP0)/((LAUNCH-RAMP0)*(LAUNCH-RAMP0))}
+  var VY=slope(LAUNCH)*SPEED, Y0=trackY(LAUNCH)-8, REST_Y=WATER+1;
+  var T_LAND=(-VY+Math.sqrt(VY*VY+2*G*(REST_Y-Y0)))/G;   // time in the air
+
+  function pose(u,cx,t){
+    var h=u.img.height;
+    if(cx<=LAUNCH){
+      var bob=(cx<RAMP0&&Math.floor(t*9+u.len)%2===0)?1:0;
+      return {x:cx,y:trackY(cx)-h/2+1-bob,a:Math.atan(slope(cx)),state:'track'};
+    }
+    var dt=(cx-LAUNCH)/SPEED;
+    if(dt>=T_LAND) return {x:LAUNCH+SPEED*u.air*T_LAND,y:REST_Y,a:u.rest,state:'down',since:dt-T_LAND};
+    return {x:LAUNCH+SPEED*u.air*dt,y:Y0+VY*dt+0.5*G*dt*dt,a:Math.atan(slope(LAUNCH))+SPIN*dt,state:'air',dt:dt};
+  }
+
+  var city=[[2,9,14],[12,6,20],[19,8,11],[31,2,0],[35,10,17],[46,7,24],[54,9,13],[64,6,19],[71,11,15],[84,7,22],[93,9,12],[104,8,18],[114,6,26],[122,10,14],[150,9,16]];
+  function drawBackdrop(){
+    for(var i=0;i<city.length;i++){var b=city[i];if(b[2])rect(ctx,b[0],WATER-b[2],b[1],b[2],C.city)}
+    // tower with a viewing ring
+    rect(ctx,31,WATER-52,2,52,C.city);rect(ctx,28,WATER-40,8,3,C.city);rect(ctx,32,WATER-58,1,6,C.city);
+    // cable-stayed bridge over the river
+    rect(ctx,100,74,W-100,1,C.bridge);
+    line(ctx,141,74,137,52,C.bridge);line(ctx,137,52,139,34,C.bridge);
+    line(ctx,138,40,112,74,C.bridge);line(ctx,138,44,120,74,C.bridge);line(ctx,138,48,128,74,C.bridge);
+    line(ctx,139,38,154,74,C.bridge);line(ctx,139,42,159,72,C.bridge);
+  }
+  var clouds=[{x:14,y:8,w:16},{x:84,y:4,w:22},{x:138,y:14,w:12}];
+  function drawCloud(c){var x=Math.round(c.x);rect(ctx,x,c.y+2,c.w,3,C.cloud);rect(ctx,x+3,c.y,c.w-8,3,C.cloud);rect(ctx,x+c.w-7,c.y+1,4,2,C.cloud)}
+
+  var smoke=[],splash=[],lastPuff=0,landed=[false,false,false];
+
+  function drawWater(t){
+    rect(ctx,CLIFF,WATER+3,W-CLIFF,H-WATER-3,C.water);
+    rect(ctx,CLIFF,WATER+3,W-CLIFF,1,C.line);
+    var shift=Math.floor(t*3)%6;
+    for(var y=WATER+7;y<H;y+=5){for(var x=CLIFF+((y/5|0)%2?3:0)+shift;x<W;x+=12)rect(ctx,x,y,3,1,C.wave)}
+  }
+
+  function drawScene(t,head,dtSec,animate){
+    ctx.clearRect(0,0,W,H);
+    for(var i=0;i<clouds.length;i++){var c=clouds[i];if(animate){c.x-=dtSec*2.5;if(c.x<-c.w)c.x=W+4}drawCloud(c)}
+    drawBackdrop();
+    // ground and cliff
+    rect(ctx,0,RAIL+3,CLIFF,H-RAIL-3,C.ground);
+    for(var gx=5;gx<CLIFF-4;gx+=9){rect(ctx,gx,RAIL+8+((gx/9|0)%3)*6,2,1,C.groundDot)}
+    rect(ctx,0,RAIL+3,CLIFF,1,C.line);
+    rect(ctx,CLIFF-1,RAIL+3,1,H-RAIL-3,C.line);
+    // warning sign
+    var sx=RAMP0-22;
+    rect(ctx,sx+3,RAIL-9,1,9,C.line);box(ctx,sx,RAIL-15,7,7,C.pink);
+    rect(ctx,sx+3,RAIL-13,1,2,C.line);rect(ctx,sx+3,RAIL-10,1,1,C.line);
+    // track, curling up at the broken end
+    for(var x=1;x<LAUNCH;x+=5){rect(ctx,x,Math.round(trackY(x))+1,3,2,C.sleeper)}
+    for(var x2=0;x2<=LAUNCH;x2++){rect(ctx,x2,Math.round(trackY(x2)),1,1,C.line)}
+    rect(ctx,LAUNCH,Math.round(trackY(LAUNCH))-1,1,1,C.line);
+    // smoke
+    for(var s=smoke.length-1;s>=0;s--){
+      var p=smoke[s];if(animate){p.age+=dtSec;p.x-=dtSec*7;p.y-=dtSec*9}
+      if(p.age>1.3){smoke.splice(s,1);continue}
+      var sz=p.age<0.35?2:(p.age<0.8?3:4),px=Math.round(p.x),py=Math.round(p.y);
+      rect(ctx,px-1,py,sz+2,sz,C.line);rect(ctx,px,py-1,sz,sz+2,C.line);rect(ctx,px,py,sz,sz,C.white);
+    }
+    // train, back to front
+    var front=null;
+    for(var u=units.length-1;u>=0;u--){
+      var un=units[u],cx=head-un.back;
+      if(cx<-20) continue;
+      var ps=pose(un,cx,t);
+      if(ps.state==='down'&&!landed[u]){
+        landed[u]=true;
+        if(animate)for(var k=0;k<7;k++)splash.push({x:ps.x+(k-3)*2,y:WATER+2,vx:(k-3)*9,vy:-30-(k%3)*12,age:0});
+      }
+      ctx.save();ctx.translate(Math.round(ps.x),Math.round(ps.y));ctx.rotate(ps.a);
+      ctx.drawImage(un.img,-Math.round(un.img.width/2),-Math.round(un.img.height/2));
+      ctx.restore();
+      if(u===0) front=ps;
+    }
+    drawWater(t);
+    // splashes
+    for(var q=splash.length-1;q>=0;q--){
+      var sp=splash[q];if(animate){sp.age+=dtSec;sp.x+=sp.vx*dtSec;sp.vy+=G*0.6*dtSec;sp.y+=sp.vy*dtSec}
+      if(sp.age>0.9||sp.y>WATER+4){splash.splice(q,1);continue}
+      rect(ctx,Math.round(sp.x),Math.round(sp.y),2,2,C.white);
+    }
+    if(animate&&front&&front.state==='track'&&t-lastPuff>0.2){
+      lastPuff=t;smoke.push({x:front.x+units[0].chimney-units[0].img.width/2,y:front.y-units[0].img.height/2,age:0});
+    }
+    // "!" as it leaves the track, "oops" once it is in the river
+    if(front&&front.x>RAMP0-2&&front.state!=='down'){
+      var bx=Math.round(front.x)+6,by=Math.max(1,Math.round(front.y)-19);
+      box(ctx,bx,by,7,9,C.white);rect(ctx,bx+3,by+2,1,3,C.line);rect(ctx,bx+3,by+6,1,1,C.line);
+    }
+    if(front&&front.state==='down'&&front.since>0.25){
+      var ox=Math.min(W-20,Math.round(front.x)-14),oy=WATER-26;
+      box(ctx,ox,oy,19,9,C.white);rect(ctx,ox+4,oy+9,2,2,C.line);
+      var O=['###','#.#','#.#','#.#','###'],P=['###','#.#','###','#..','#..'],S=['###','#..','###','..#','###'];
+      glyph(ctx,ox+2,oy+2,O,C.line);glyph(ctx,ox+6,oy+2,O,C.line);glyph(ctx,ox+10,oy+2,P,C.line);glyph(ctx,ox+14,oy+2,S,C.line);
+    }
+  }
+
+  var reduce=window.matchMedia&&window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+  var playing=!reduce,visible=true,raf=0,last=0,t=0;
+  function headAt(time){return HEAD0+SPEED*time}
+  var lastUnit=units[units.length-1];
+  var LOOP=(LAUNCH+lastUnit.back-HEAD0)/SPEED+T_LAND+REST_HOLD;
+
+  function reset(){t=0;smoke=[];splash=[];lastPuff=0;landed=[false,false,false]}
+  function frame(now){
+    raf=0;if(!playing||!visible)return;
+    var dt=last?Math.min((now-last)/1000,0.05):0;last=now;
+    t+=dt;if(t>LOOP)reset();
+    drawScene(t,headAt(t),dt,true);
+    raf=requestAnimationFrame(frame);
+  }
+  function start(){if(!raf&&playing&&visible){last=0;raf=requestAnimationFrame(frame)}}
+  function stillFrame(){var tt=(LAUNCH+0.25*SPEED+units[0].back-HEAD0)/SPEED;drawScene(tt,headAt(tt),0,false)}
+
+  if(playing){drawScene(0,headAt(0),0,false);start()}else stillFrame();
+
+  if(toggle){
+    toggle.hidden=false;
+    var iconPause=toggle.querySelector('.i-pause'),iconPlay=toggle.querySelector('.i-play');
+    function label(){
+      toggle.setAttribute('aria-label',playing?'Pause animation':'Play animation');
+      toggle.setAttribute('title',playing?'Pause animation':'Play animation');
+      if(iconPause)iconPause.hidden=!playing;if(iconPlay)iconPlay.hidden=playing;
+    }
+    label();
+    toggle.addEventListener('click',function(){playing=!playing;label();if(playing)start()});
+  }
+  if('IntersectionObserver' in window){new IntersectionObserver(function(e){visible=e[0].isIntersecting;if(visible)start()}).observe(canvas)}
+  document.addEventListener('visibilitychange',function(){visible=!document.hidden;if(visible)start()});
+})();
+</script>
+{% endraw %}
+
+</body>
+</html>
