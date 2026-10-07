@@ -36,9 +36,9 @@ what_we_do:
       text: Hear from researchers and professionals working on AI safety, from
         technical research to operations, then chat with them afterwards.
       coming_soon: false
-    - title: Discussion groups
-      text: Read a paper or book together and talk it through. Groups meet weekly for
-        a fixed number of weeks.
+    - title: Discussion group
+      text: Read a paper or book together and share your ideas on it. Groups meet
+        weekly for a fixed number of weeks.
       coming_soon: true
 events:
   heading: Upcoming events
