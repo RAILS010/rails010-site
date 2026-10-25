@@ -1,0 +1,111 @@
+---
+layout: default
+title: Past events
+permalink: /past-events/
+description: Posters, photos and recaps of past RAILS events on AI safety in Rotterdam.
+# The words and pictures live in _data/past_events.yml (edit them in Pages CMS under "Past events").
+---
+{%- assign d = site.data.past_events -%}
+{%- assign c = site.data.content -%}
+  <section class="page-head">
+    <div class="wrap">
+      <div class="intro">
+        <p class="kicker">So far</p>
+        <h1 class="page-title">{{ d.heading | escape }}</h1>
+        {%- if d.intro != blank %}
+        <p>{{ d.intro | markdownify | remove: '<p>' | remove: '</p>' | strip }}</p>
+        {%- endif %}
+      </div>
+    </div>
+  </section>
+
+  <section class="pe-list">
+    <div class="wrap">
+      {%- for e in d.events %}
+      {%- assign eid = e.title | slugify %}
+      <article class="pe px" id="{{ eid }}" aria-labelledby="{{ eid }}-title">
+        {%- if e.poster != blank %}
+        <div class="pe-poster">
+          <a class="zoom" href="{{ e.poster | relative_url }}" data-caption="{{ e.title | escape }}"><img src="{{ e.poster | relative_url }}" alt="{{ e.poster_alt | default: e.title | escape }}" loading="lazy"></a>
+        </div>
+        {%- endif %}
+        <div class="pe-body">
+          <div class="pe-meta">
+            {%- if e.date != blank %}<span class="chip pink"><time datetime="{{ e.date | date: '%Y-%m-%d' }}">{{ e.date | date: '%-d %B %Y' }}</time></span>{% endif %}
+            {%- if e.format != blank %}<span class="chip">{{ e.format | escape }}</span>{% endif %}
+          </div>
+          <h2 id="{{ eid }}-title">{{ e.title | escape }}</h2>
+          {%- if e.location != blank or e.partners != blank %}
+          <p class="pe-with">
+            {%- if e.location != blank %}{{ e.location | escape }}{% endif %}
+            {%- if e.location != blank and e.partners != blank %} · {% endif %}
+            {%- if e.partners != blank %}With {{ e.partners | escape }}{% endif %}
+          </p>
+          {%- endif %}
+          {%- if e.description != blank %}
+          <div class="pe-desc">{{ e.description | markdownify }}</div>
+          {%- endif %}
+          {%- if e.photos and e.photos.size > 0 %}
+          <ul class="pe-photos">
+            {%- for ph in e.photos %}
+            {%- if ph.image != blank %}
+            <li><figure>
+              <a class="zoom" href="{{ ph.image | relative_url }}" data-caption="{{ ph.caption | escape }}"><img src="{{ ph.image | relative_url }}" alt="{{ ph.alt | default: ph.caption | escape }}" loading="lazy"></a>
+              {%- if ph.caption != blank %}<figcaption>{{ ph.caption | escape }}</figcaption>{% endif %}
+            </figure></li>
+            {%- endif %}
+            {%- endfor %}
+          </ul>
+          {%- endif %}
+          {%- if e.links and e.links.size > 0 %}
+          <div class="pe-links">
+            {%- for l in e.links %}
+            {%- if l.label != blank and l.url != blank %}
+            <a class="btn small plain px" href="{{ l.url | escape }}" target="_blank" rel="noopener">{{ l.label | escape }}</a>
+            {%- endif %}
+            {%- endfor %}
+          </div>
+          {%- endif %}
+          {%- if e.supported_by != blank %}
+          <p class="pe-with">Supported by {{ e.supported_by | escape }}</p>
+          {%- endif %}
+        </div>
+      </article>
+      {%- else %}
+      <p class="empty-note px">Our first events are coming up. Check back soon!</p>
+      {%- endfor %}
+
+      <div class="page-cta">
+        <p>{{ d.cta_text | escape }}</p>
+        <a class="btn px" href="{{ '/' | relative_url }}#events">{{ d.cta_button | default: 'See upcoming events' | escape }}</a>
+      </div>
+    </div>
+  </section>
+
+  <dialog class="lightbox" id="lightbox" aria-label="Enlarged picture">
+    <figure><img alt=""><figcaption></figcaption></figure>
+    <button class="lightbox-close px" type="button" aria-label="Close">×</button>
+  </dialog>
+
+{% raw %}
+<script>
+(function(){
+  var box=document.getElementById('lightbox');
+  if(!box||typeof box.showModal!=='function') return; // old browsers just open the picture
+  var img=box.querySelector('img'),cap=box.querySelector('figcaption');
+  document.addEventListener('click',function(e){
+    var a=e.target.closest('a.zoom');
+    if(!a) return;
+    e.preventDefault();
+    var thumb=a.querySelector('img');
+    img.src=a.getAttribute('href');
+    img.alt=thumb?thumb.alt:'';
+    cap.textContent=a.getAttribute('data-caption')||'';
+    cap.hidden=!cap.textContent;
+    box.showModal();
+  });
+  box.querySelector('.lightbox-close').addEventListener('click',function(){box.close()});
+  box.addEventListener('click',function(e){if(e.target===box)box.close()});
+})();
+</script>
+{% endraw %}

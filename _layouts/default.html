@@ -1,0 +1,84 @@
+---
+# Shared frame for every page: head, header with menu, footer.
+# Page content goes where {{ content }} is. Styles live in assets/site.css.
+---
+{%- assign c = site.data.content -%}
+{%- assign home = '/' | relative_url -%}
+{%- if page.url == '/' %}{% assign home = '' %}{% endif -%}
+{%- if page.title %}{% assign full_title = page.title | append: ' · RAILS' %}{% else %}{% assign full_title = site.title %}{% endif -%}
+{%- assign desc = page.description | default: c.seo_description -%}
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+<title>{{ full_title | escape }}</title>
+<meta name="description" content="{{ desc | escape }}">
+<meta property="og:title" content="{{ full_title | escape }}">
+<meta property="og:description" content="{{ desc | escape }}">
+<meta property="og:type" content="website">
+<meta property="og:url" content="https://rails010.nl{{ page.url }}">
+<meta name="theme-color" content="#DFF1FD">
+<link rel="icon" href="{{ '/assets/favicon.ico' | relative_url }}" sizes="any">
+<link rel="icon" type="image/png" href="{{ '/assets/favicon-32.png' | relative_url }}">
+<link rel="apple-touch-icon" href="{{ '/assets/apple-touch-icon.png' | relative_url }}">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@500;700&family=Figtree:wght@400;500;600&family=Pixelify+Sans:wght@700&display=swap">
+<link rel="stylesheet" href="{{ '/assets/site.css' | relative_url }}?v={{ site.time | date: '%s' }}">
+<script>document.documentElement.className+=' js'</script>
+</head>
+<body>
+
+{%- if c.announcement.show and c.announcement.text != blank %}
+{%- assign bl = c.announcement.link | strip %}
+{%- assign bl_first = bl | slice: 0 %}
+{%- if bl_first == '#' %}{% assign bl = home | append: bl %}{% endif %}
+<div class="banner">
+  <div class="wrap">{% if bl != blank %}<a href="{{ bl | escape }}">{{ c.announcement.text | escape }}</a>{% else %}{{ c.announcement.text | escape }}{% endif %}</div>
+</div>
+{%- endif %}
+
+<header class="site-head">
+  <div class="wrap">
+    <a class="home-link" href="{% if home == '' %}#top{% else %}{{ home }}{% endif %}" aria-label="RAILS home"><img src="{{ '/assets/rails-wordmark.png' | relative_url }}" width="900" height="303" alt="RAILS"></a>
+    <button class="menu-btn px" type="button" aria-expanded="false" aria-controls="site-nav"><span class="bars" aria-hidden="true"><i></i><i></i><i></i></span>Menu</button>
+    <nav class="site-nav" id="site-nav" aria-label="Main">
+      <a href="{{ home }}#what-we-do">What we do</a>
+      <a href="{{ home }}#events">Events</a>
+      <a href="{{ '/past-events/' | relative_url }}"{% if page.url == '/past-events/' %} aria-current="page"{% endif %}>Past events</a>
+      <a href="{{ '/majors/' | relative_url }}"{% if page.url == '/majors/' %} aria-current="page"{% endif %}>Your major</a>
+      <a href="{{ home }}#get-involved">Get involved</a>
+      <a href="{{ home }}#contact">Contact</a>
+    </nav>
+  </div>
+</header>
+
+<main id="top">
+{{ content }}
+</main>
+
+<footer class="site-foot">
+  <div class="wrap">
+    <img src="{{ '/assets/rails-wordmark.png' | relative_url }}" width="900" height="303" alt="RAILS">
+    <span>{{ c.footer_text | escape }}</span>
+  </div>
+</footer>
+
+{% raw %}
+<script>
+(function(){
+  var btn=document.querySelector('.menu-btn'),nav=document.getElementById('site-nav');
+  if(!btn||!nav) return;
+  btn.addEventListener('click',function(){
+    var open=nav.classList.toggle('open');
+    btn.setAttribute('aria-expanded',open?'true':'false');
+  });
+  nav.addEventListener('click',function(e){
+    if(e.target.closest('a')){nav.classList.remove('open');btn.setAttribute('aria-expanded','false')}
+  });
+})();
+</script>
+{% endraw %}
+</body>
+</html>

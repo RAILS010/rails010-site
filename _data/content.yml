@@ -4,7 +4,7 @@ announcement:
   link: "#events"
 hero:
   full_name: Rotterdam AI Literacy & Safety
-  tagline: "Help us prevent AI from going off the rails. "
+  tagline: We want to prevent AI from going off the rails.
   intro: We're a student-run community dedicated to understanding AI and the risks
     that come with it. Bring your curiosity. No tech background needed!
   primary_button: See upcoming events
@@ -49,6 +49,7 @@ events:
     4px;"   allowfullscreen=""   aria-hidden="false"   tabindex="0" ></iframe>'
   empty_message: See what's coming up on our Luma page.
   follow_button: Follow RAILS on Luma
+  past_button: See past events
 get_involved:
   heading: Get involved
   paths:

@@ -1,0 +1,219 @@
+---
+layout: default
+title: Find your track
+permalink: /majors/
+description: How you can contribute to AI safety based on your major, from psychology and law to computer science.
+# The words live in _data/majors.yml (edit them in Pages CMS under "Your major (train page)").
+# Each carriage on the train is one item in the "cars" list; its ticket shows when someone clicks it.
+---
+{%- assign m = site.data.majors -%}
+{%- assign c = site.data.content -%}
+  <section class="page-head">
+    <div class="wrap">
+      <div class="intro">
+        <p class="kicker">Your major</p>
+        <h1 class="page-title">{{ m.heading | escape }}</h1>
+        {%- if m.intro != blank %}
+        <p>{{ m.intro | markdownify | remove: '<p>' | remove: '</p>' | strip }}</p>
+        {%- endif %}
+      </div>
+    </div>
+  </section>
+
+  <section class="track-sec" aria-label="Majors">
+    <div class="wrap train-bar">
+      <p class="train-hint">{{ m.hint | escape }}</p>
+      <div class="train-nav no-js-hide">
+        <button type="button" class="px" data-dir="-1" aria-label="Scroll train left"><svg viewBox="0 0 16 16" aria-hidden="true"><path d="M10 2h2v2h-2v2H8v2H6V6h2V4h2zM6 8h2v2h2v2h2v2h-2v-2H8v-2H6z" fill="currentColor"/></svg></button>
+        <button type="button" class="px" data-dir="1" aria-label="Scroll train right"><svg viewBox="0 0 16 16" aria-hidden="true"><path d="M4 2h2v2h2v2h2v2H8V6H6V4H4zM8 8h2v2H8v2H6v2H4v-2h2v-2h2z" fill="currentColor"/></svg></button>
+      </div>
+    </div>
+
+    <div class="train-scroller" id="train-scroller">
+      <ol class="train" role="tablist" aria-label="Pick your major">
+        <li class="loco" role="presentation" aria-hidden="true">
+          <span class="puff"></span><span class="puff"></span><span class="puff"></span>
+          <svg viewBox="0 0 38 24" width="228" height="144"><g transform="translate(38 0) scale(-1 1)">
+            <rect x="0" y="17" width="3" height="1" fill="#614F4D"/>
+            <rect x="2" y="5" width="14" height="15" fill="#614F4D"/><rect x="3" y="6" width="12" height="13" fill="#F2AEBD"/>
+            <rect x="1" y="3" width="16" height="3" fill="#614F4D"/>
+            <rect x="5" y="8" width="8" height="5" fill="#614F4D"/><rect x="6" y="9" width="6" height="3" fill="#FFFFFF"/>
+            <rect x="15" y="10" width="19" height="10" fill="#614F4D"/><rect x="16" y="11" width="17" height="8" fill="#5D86C6"/>
+            <rect x="18" y="13" width="13" height="1" fill="#FFFFFF"/>
+            <rect x="27" y="4" width="5" height="7" fill="#614F4D"/><rect x="26" y="2" width="7" height="2" fill="#614F4D"/>
+            <rect x="34" y="13" width="2" height="3" fill="#614F4D"/>
+            <rect x="32" y="20" width="4" height="1" fill="#614F4D"/><rect x="33" y="21" width="4" height="1" fill="#614F4D"/>
+            <rect x="2" y="19" width="32" height="2" fill="#614F4D"/>
+            <g fill="#614F4D"><rect x="5" y="20" width="5" height="3"/><rect x="6" y="19" width="3" height="5"/><rect x="15" y="20" width="5" height="3"/><rect x="16" y="19" width="3" height="5"/><rect x="26" y="20" width="5" height="3"/><rect x="27" y="19" width="3" height="5"/></g>
+            <g fill="#F2AEBD"><rect x="7" y="21" width="1" height="1"/><rect x="17" y="21" width="1" height="1"/><rect x="28" y="21" width="1" height="1"/></g>
+          </g></svg>
+        </li>
+        {%- for car in m.cars %}
+        {%- assign slug = car.name | slugify %}
+        {%- assign prev_i = forloop.index0 | minus: 1 %}
+        {%- assign prev_group = m.cars[prev_i].group %}
+        {%- if car.group != prev_group and car.group != 'all' %}
+        <li class="sign {{ car.group }}" role="presentation" aria-hidden="true">
+          <span class="sign-board px">{% if car.group == 'elsewhere' %}{{ m.elsewhere_label | escape }}{% else %}{{ m.eur_label | escape }}{% endif %}</span>
+          <span class="sign-post"></span>
+        </li>
+        {%- endif %}
+        <li class="car-slot" role="presentation">
+          <a class="car c{{ forloop.index | modulo: 3 }}" role="tab" id="car-{{ slug }}" href="#{{ slug }}" aria-controls="{{ slug }}" aria-selected="false">
+            <svg viewBox="0 0 36 24" width="216" height="144" aria-hidden="true">
+              <g fill="#614F4D">
+                <rect x="0" y="17" width="2" height="1"/><rect x="34" y="17" width="2" height="1"/>
+                <rect x="1" y="3" width="34" height="2"/>
+                <rect x="2" y="4" width="32" height="16"/>
+                <rect x="2" y="19" width="32" height="2"/>
+                <rect x="5" y="6" width="5" height="4"/><rect x="12" y="6" width="5" height="4"/><rect x="19" y="6" width="5" height="4"/><rect x="26" y="6" width="5" height="4"/>
+                <rect x="6" y="20" width="5" height="3"/><rect x="7" y="19" width="3" height="5"/><rect x="26" y="20" width="5" height="3"/><rect x="27" y="19" width="3" height="5"/>
+              </g>
+              <rect class="body" x="3" y="5" width="30" height="14"/>
+              <g fill="#614F4D"><rect x="5" y="6" width="5" height="4"/><rect x="12" y="6" width="5" height="4"/><rect x="19" y="6" width="5" height="4"/><rect x="26" y="6" width="5" height="4"/></g>
+              <g fill="#FFFFFF"><rect x="6" y="7" width="3" height="2"/><rect x="13" y="7" width="3" height="2"/><rect x="20" y="7" width="3" height="2"/><rect x="27" y="7" width="3" height="2"/></g>
+              <g fill="#F2AEBD"><rect x="8" y="21" width="1" height="1"/><rect x="28" y="21" width="1" height="1"/></g>
+            </svg>
+            <span class="car-name">{{ car.name | escape }}</span>
+          </a>
+        </li>
+        {%- endfor %}
+      </ol>
+    </div>
+
+    <div class="wrap tickets">
+      {%- for car in m.cars %}
+      {%- assign slug = car.name | slugify %}
+      <article class="ticket" id="{{ slug }}" role="tabpanel" aria-labelledby="car-{{ slug }}" tabindex="-1">
+        <div class="ticket-main">
+          <div class="ticket-head">
+            <span>RAILS · Single journey</span>
+            <span>Carriage {% if forloop.index < 10 %}0{% endif %}{{ forloop.index }}</span>
+          </div>
+          <div class="ticket-route">
+            <div class="from"><small>From</small><strong>{{ car.name | escape }}</strong></div>
+            <svg class="ticket-arrow" viewBox="0 0 22 12" aria-hidden="true"><path d="M0 5h16V3h2v2h2v2h-2v2h-2V7H0zM14 1h2v2h-2zM14 9h2v2h-2z" fill="currentColor"/></svg>
+            <div class="to"><small>To</small><strong>AI safety</strong></div>
+          </div>
+          {%- if car.programmes != blank %}
+          <p class="ticket-valid"><small>Valid for</small>{{ car.programmes | escape }}</p>
+          {%- endif %}
+          <div class="ticket-sections">
+            {%- if car.why != blank %}
+            <div class="t-why">
+              <h3>Why your major matters</h3>
+              <p>{{ car.why | markdownify | remove: '<p>' | remove: '</p>' | strip }}</p>
+            </div>
+            {%- endif %}
+            <div>
+              <h3>Where you could fit</h3>
+              {%- if car.roles and car.roles.size > 0 %}
+              <ul>
+                {%- for r in car.roles %}{% if r != blank %}
+                <li>{{ r | escape }}</li>
+                {%- endif %}{% endfor %}
+              </ul>
+              {%- else %}
+              <p class="ticket-soon">Coming soon.</p>
+              {%- endif %}
+            </div>
+            <div class="res">
+              <h3>First stops</h3>
+              {%- if car.resources and car.resources.size > 0 %}
+              <ul>
+                {%- for res in car.resources %}{% if res.label != blank %}
+                <li>{% if res.url != blank %}<a href="{{ res.url | escape }}" target="_blank" rel="noopener">{{ res.label | escape }}</a>{% else %}{{ res.label | escape }}{% endif %}{% if res.note != blank %}<span>{{ res.note | escape }}</span>{% endif %}</li>
+                {%- endif %}{% endfor %}
+              </ul>
+              {%- else %}
+              <p class="ticket-soon">Resources for this track are coming soon. Until then, start with the <a href="#all-majors">All majors</a> ticket.</p>
+              {%- endif %}
+            </div>
+          </div>
+          {%- if m.tip != blank %}
+          <p class="ticket-tip">{{ m.tip | markdownify | remove: '<p>' | remove: '</p>' | strip }}</p>
+          {%- endif %}
+        </div>
+        <aside class="ticket-stub">
+          <div><small>Platform</small><strong>{% if car.group == 'eur' %}Erasmus, Woudestein{% else %}Any station{% endif %}</strong></div>
+          <div><small>Departs</small><strong>Whenever you're ready</strong></div>
+          <div><small>Fare</small><strong>Free</strong></div>
+          <a class="btn small px" href="{{ '/' | relative_url }}#events">{{ m.event_button | default: 'Come to an event' | escape }}</a>
+          <div class="barcode" aria-hidden="true"></div>
+        </aside>
+      </article>
+      {%- endfor %}
+    </div>
+  </section>
+
+{% raw %}
+<script>
+(function(){
+  var tabs=[].slice.call(document.querySelectorAll('.train .car'));
+  if(!tabs.length) return;
+  var panels=tabs.map(function(t){return document.getElementById(t.getAttribute('aria-controls'))});
+  var scroller=document.getElementById('train-scroller');
+  var reduce=window.matchMedia&&window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+  var current=-1;
+
+  function inView(el){var r=el.getBoundingClientRect();return r.top>=0&&r.top<window.innerHeight*0.6}
+  function select(i,opts){
+    opts=opts||{};
+    if(i<0||i>=tabs.length) return;
+    current=i;
+    tabs.forEach(function(t,j){
+      var on=j===i;
+      t.setAttribute('aria-selected',on?'true':'false');
+      t.tabIndex=on?0:-1;
+      if(panels[j]) panels[j].hidden=!on;
+    });
+    if(opts.scrollCar) tabs[i].scrollIntoView({behavior:reduce?'auto':'smooth',block:'nearest',inline:'center'});
+    if(opts.hash&&history.replaceState) history.replaceState(null,'','#'+panels[i].id);
+    if(opts.focusTab) tabs[i].focus({preventScroll:true});
+    if(opts.showTicket&&panels[i]&&!inView(panels[i])) panels[i].scrollIntoView({behavior:reduce?'auto':'smooth',block:'start'});
+  }
+  function indexFromHash(){
+    var id=decodeURIComponent((location.hash||'').slice(1));
+    for(var i=0;i<panels.length;i++){if(panels[i]&&panels[i].id===id)return i}
+    return -1;
+  }
+
+  tabs.forEach(function(t,i){
+    t.addEventListener('click',function(e){e.preventDefault();select(i,{hash:true,scrollCar:true,showTicket:true})});
+    t.addEventListener('keydown',function(e){
+      var k=e.key,n=null;
+      if(k==='ArrowRight'||k==='ArrowDown') n=(i+1)%tabs.length;
+      else if(k==='ArrowLeft'||k==='ArrowUp') n=(i-1+tabs.length)%tabs.length;
+      else if(k==='Home') n=0; else if(k==='End') n=tabs.length-1;
+      if(n!==null){e.preventDefault();select(n,{hash:true,scrollCar:true,focusTab:true})}
+    });
+  });
+  // links inside tickets that point at another carriage (e.g. "All majors")
+  document.addEventListener('click',function(e){
+    var a=e.target.closest('.ticket a[href^="#"]');
+    if(!a) return;
+    var id=a.getAttribute('href').slice(1);
+    for(var i=0;i<panels.length;i++){if(panels[i].id===id){e.preventDefault();select(i,{hash:true,scrollCar:true,showTicket:true});return}}
+  });
+  window.addEventListener('hashchange',function(){var i=indexFromHash();if(i>=0&&i!==current)select(i,{scrollCar:true})});
+
+  var start=indexFromHash();
+  select(start>=0?start:0,{scrollCar:start>0});
+  if(start>=0) setTimeout(function(){panels[start].scrollIntoView({block:'start'})},60);
+  else if(scroller) scroller.scrollLeft=0;
+
+  // arrow buttons
+  var btns=[].slice.call(document.querySelectorAll('.train-nav button'));
+  function updateBtns(){
+    var max=scroller.scrollWidth-scroller.clientWidth-2;
+    btns.forEach(function(b){b.disabled=(b.dataset.dir==='-1')?scroller.scrollLeft<=2:scroller.scrollLeft>=max});
+  }
+  btns.forEach(function(b){b.addEventListener('click',function(){
+    scroller.scrollBy({left:Number(b.dataset.dir)*Math.max(240,scroller.clientWidth*0.7),behavior:reduce?'auto':'smooth'});
+  })});
+  scroller.addEventListener('scroll',function(){window.requestAnimationFrame(updateBtns)},{passive:true});
+  window.addEventListener('resize',updateBtns);
+  updateBtns();
+})();
+</script>
+{% endraw %}

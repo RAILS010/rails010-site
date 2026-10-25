@@ -1,0 +1,25 @@
+heading: Past events
+intro: What we've been up to. Posters, photos and a short recap of every RAILS event, newest first.
+cta_text: Missed these? The next one is on Luma.
+cta_button: See upcoming events
+events:
+  - title: Should we pause frontier AI development?
+    format: Debate night
+    date: "2026-10-15"
+    location: Langeveld 1.02, Erasmus University Rotterdam
+    partners: Erasmus Debating Society
+    supported_by: BlueDot Impact
+    poster: /assets/uploads/2026-10-15-debate-night-poster.jpg
+    poster_alt: "Event poster: Should we pause frontier AI development? A stop sign between YES and NO placards. 18:30, 15 October 2026, Langeveld 1.02. Join the debate evening to win a NYT best-seller. No background required."
+    description: >-
+      Our first event, run together with the Erasmus Debating Society. A short
+      opening talk laid out what AI is already doing for science and medicine,
+      and what has already gone wrong, from chatbots blocked over deepfakes to
+      AI agents coordinating a cyberattack nobody asked for. Then debaters argued
+      both sides of the question. The best speakers went home with a book on AI
+      risk and an Erasmus tote bag.
+    photos:
+      - image: /assets/uploads/2026-10-15-debate-night-winners.jpg
+        alt: The organisers and four debate winners at the front of the lecture room, holding their prize books and Erasmus tote bags. Some faces are covered with blue hearts.
+        caption: Our winners with their prize books.
+    links: []

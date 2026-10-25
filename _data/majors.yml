@@ -1,0 +1,220 @@
+heading: Find your track
+intro: AI safety needs people from every field, not just programmers. Pick the carriage for your major to see why it matters and where you could start.
+hint: Scroll along the train and pick your carriage.
+eur_label: Taught at Erasmus
+elsewhere_label: Studied elsewhere
+event_button: Come to an event
+tip: Know a great resource for this major? Email hello@rails010.nl and we'll add it.
+cars:
+  - name: All majors
+    group: all
+    programmes: Everyone, whatever you study
+    why: AI safety is a young field and it needs far more than programmers. Whatever you study, you can learn the basics, talk about it with the people around you, and help shape what comes next.
+    roles:
+      - Come to RAILS events and discussion groups
+      - Operations, events and community building
+      - Writing and communications
+      - Fundraising and grantmaking
+    resources:
+      - label: BlueDot Impact courses
+        url: https://bluedot.org/courses
+        note: Free online courses, from a two-hour intro to multi-week programmes.
+      - label: AISafety.info
+        url: https://aisafety.info/
+        note: Plain-language answers to common questions about AI risk.
+      - label: Why AI risk is a pressing problem (80,000 Hours)
+        url: https://80000hours.org/problem-profiles/artificial-intelligence/
+        note: A long, careful overview of the case for working on this.
+      - label: AISafety.com self-study
+        url: https://aisafety.com/self-study
+        note: Reading lists and courses you can do on your own.
+
+  - name: Psychology
+    group: eur
+    programmes: International Bachelor in Psychology, Psychologie
+    why: Psychologists study how minds work, how people form trust and how to measure behaviour carefully. The same skills are now used to study AI models themselves ("LLM psychology") and how people come to rely on chatbots.
+    roles:
+      - Behavioural research and evaluations of AI models
+      - Human–AI interaction and overreliance research
+      - AI and mental health policy
+    resources: []
+
+  - name: Sociology & social challenges
+    group: eur
+    programmes: Sociologie, Management of International Social Challenges
+    why: AI is changing work, inequality, information and power. Social scientists study how those changes land on people and institutions, and who gets left out.
+    roles:
+      - Research on AI's societal impact
+      - Public opinion and survey research on AI
+      - Policy research at think tanks
+    resources: []
+
+  - name: Public administration
+    group: eur
+    programmes: Bestuurskunde
+    why: The rules for AI are being written right now, in Brussels, The Hague and inside companies. Someone has to design them, put them into practice and check they work.
+    roles:
+      - AI governance and policy
+      - Working at regulators and supervisory bodies
+      - Oversight of AI used by governments
+    resources: []
+
+  - name: Pedagogical sciences
+    group: eur
+    programmes: Pedagogische Wetenschappen
+    why: Children and students are growing up with AI tutors and chatbot companions. Pedagogy asks what that does to learning and development, and how to protect young users.
+    roles:
+      - AI literacy education
+      - Research on how AI affects children and learning
+      - Child-safety policy for AI products
+    resources: []
+
+  - name: Economics & econometrics
+    group: eur
+    programmes: Economics and Business Economics, Econometrics and Operations Research, Fiscale Economie, Economie & Samenleving, and the double bachelors
+    why: Economists model how AI could change growth, jobs and markets, and why competition pushes companies to race. Econometricians bring the statistics needed to measure what is actually happening.
+    roles:
+      - AI economics and forecasting research
+      - Market and compute analysis for policymakers
+      - Statistics for AI evaluations
+    resources: []
+
+  - name: Business
+    group: eur
+    programmes: International Business Administration, Bedrijfskunde
+    why: Advanced AI is built and sold by companies. How those companies are run, governed and held accountable matters a lot, and so do well-run safety organisations.
+    roles:
+      - Operations at AI safety organisations
+      - Corporate governance and responsible AI teams
+      - Strategy, grantmaking and fundraising
+    resources: []
+
+  - name: Law
+    group: eur
+    programmes: Erasmus School of Law bachelors
+    why: Lawyers decide what AI companies are allowed to do and who pays when things go wrong, from the EU AI Act to liability and competition law.
+    roles:
+      - AI law and policy
+      - EU AI Act implementation and compliance
+      - Research on liability for AI harms
+    resources: []
+
+  - name: Philosophy
+    group: eur
+    programmes: Filosofie, Bachelor in Philosophy of a Specific Discipline, and the double bachelors with philosophy
+    why: What should AI systems value? Could they ever deserve moral consideration? Who gets to decide? AI safety is full of questions philosophers are trained to think about.
+    roles:
+      - Ethics and alignment research
+      - Research on AI moral status and welfare
+      - Strategy and governance research
+    resources: []
+
+  - name: History
+    group: eur
+    programmes: International Bachelor History
+    why: We have tried to manage dangerous technologies before, from nuclear weapons to biotechnology. Historians can show what worked, what didn't, and why.
+    roles:
+      - Research on how past technologies were governed
+      - Policy research
+      - Writing and journalism
+    resources: []
+
+  - name: Communication & media
+    group: eur
+    programmes: International Bachelor Communication and Media
+    why: Most people meet AI through news and social media. Explaining it clearly, and studying deepfakes and AI-generated misinformation, is a job in itself.
+    roles:
+      - Science communication and journalism
+      - Communications at AI safety organisations
+      - Research on AI and misinformation
+    resources: []
+
+  - name: Arts & culture
+    group: eur
+    programmes: International Bachelor Arts and Culture Studies
+    why: Stories and culture shape how society imagines AI, and AI is reshaping creative work. Both need people who understand culture from the inside.
+    roles:
+      - Storytelling and public engagement
+      - AI and the creative industries
+      - Events and community work
+    resources: []
+
+  - name: Medicine & life sciences
+    group: eur
+    programmes: Geneeskunde, Nanobiology, Clinical Technology
+    why: AI could speed up medicine enormously. It could also make it easier to misuse biology. Both sides need people who understand the science.
+    roles:
+      - Biosecurity
+      - Safety testing of medical AI
+      - Regulation of AI in healthcare
+    resources: []
+
+  - name: Health sciences
+    group: eur
+    programmes: Gezondheidswetenschappen (BMG)
+    why: Hospitals and health systems are adopting AI fast. Someone has to check that it is safe, fair and worth the money.
+    roles:
+      - Health AI policy and evaluation
+      - Health technology assessment
+      - Pandemic preparedness policy
+    resources: []
+
+  - name: Liberal arts & sciences
+    group: eur
+    programmes: Liberal Arts and Sciences (Erasmus University College)
+    why: AI safety mixes computer science, philosophy, law and policy. A degree that crosses disciplines is a good fit for a field that needs generalists.
+    roles:
+      - Research and strategy roles that span fields
+      - Operations and community building
+      - AI governance
+    resources: []
+
+  - name: Computer science & AI
+    group: elsewhere
+    programmes: Computer Science, Artificial Intelligence, Data Science
+    why: The most direct route into technical safety research, working on making AI systems understandable, honest and hard to misuse.
+    roles:
+      - Alignment and interpretability research
+      - Evaluations and red-teaming
+      - Security of AI systems
+    resources: []
+
+  - name: Maths & statistics
+    group: elsewhere
+    programmes: Mathematics, Statistics
+    why: Safety research leans on theory and careful measurement, and many researchers started out in maths.
+    roles:
+      - Theoretical alignment research
+      - Statistics for AI evaluations
+      - Forecasting
+    resources: []
+
+  - name: Physics & engineering
+    group: elsewhere
+    programmes: Physics, Engineering
+    why: Physicists are common in interpretability research, and knowing how chips and data centres work matters for governing compute.
+    roles:
+      - Interpretability research
+      - Compute and hardware governance
+      - Safety engineering
+    resources: []
+
+  - name: Biology & chemistry
+    group: elsewhere
+    programmes: Biology, Chemistry, Biomedical Sciences
+    why: Stopping AI from helping anyone make biological or chemical weapons needs people who know the science.
+    roles:
+      - Biosecurity
+      - Testing AI models for dangerous capabilities
+      - Science policy
+    resources: []
+
+  - name: Political science
+    group: elsewhere
+    programmes: Political Science, International Relations
+    why: Advanced AI is now a geopolitical issue, from export controls to international agreements and arms-race dynamics between countries.
+    roles:
+      - International AI governance
+      - Think tanks and government
+      - Diplomacy
+    resources: []

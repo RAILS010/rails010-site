@@ -1,4 +1,7 @@
 # Tells Pages CMS (app.pagescms.org) which parts of the RAILS site are editable.
+media:
+  input: assets/uploads
+  output: /assets/uploads
 content:
   - name: site
     label: Website text
@@ -124,6 +127,9 @@ content:
           - name: follow_button
             label: Luma button text
             type: string
+          - name: past_button
+            label: Past events button text
+            type: string
 
       - name: get_involved
         label: Get involved
@@ -184,3 +190,166 @@ content:
         label: Google description
         type: text
         description: The short summary Google and link previews show under the site's name. About 150 characters.
+
+  - name: past_events
+    label: Past events
+    type: file
+    path: _data/past_events.yml
+    fields:
+      - name: heading
+        label: Page heading
+        type: string
+      - name: intro
+        label: Intro text
+        type: text
+      - name: events
+        label: Events
+        type: object
+        description: Newest event at the top. Drag to reorder.
+        list:
+          collapsible:
+            collapsed: true
+            summary: "{title}"
+        fields:
+          - name: title
+            label: Title
+            type: string
+          - name: format
+            label: Type of event (small label)
+            type: string
+            description: For example "Debate night", "Workshop", "Speaker".
+          - name: date
+            label: Date
+            type: date
+          - name: location
+            label: Location
+            type: string
+          - name: partners
+            label: Organised with (optional)
+            type: string
+          - name: supported_by
+            label: Supported by (optional)
+            type: string
+            description: Funders or sponsors, e.g. BlueDot Impact.
+          - name: poster
+            label: Poster
+            type: image
+          - name: poster_alt
+            label: Poster description (for screen readers)
+            type: text
+            description: What the poster says and shows, in one or two sentences.
+          - name: description
+            label: What happened
+            type: text
+            description: Three to five sentences. You can make links like [this](https://example.com).
+          - name: photos
+            label: Photos
+            type: object
+            list:
+              collapsible:
+                collapsed: true
+                summary: "{caption}"
+            fields:
+              - name: image
+                label: Photo
+                type: image
+              - name: alt
+                label: Photo description (for screen readers)
+                type: text
+              - name: caption
+                label: Caption (optional, shown under the photo)
+                type: string
+          - name: links
+            label: Links (optional)
+            type: object
+            description: Slides, a recap post, recordings...
+            list:
+              collapsible:
+                collapsed: true
+                summary: "{label}"
+            fields:
+              - name: label
+                label: Button text
+                type: string
+              - name: url
+                label: Link
+                type: string
+      - name: cta_text
+        label: Text at the bottom of the page
+        type: string
+      - name: cta_button
+        label: Button text at the bottom
+        type: string
+
+  - name: majors
+    label: Your major (train page)
+    type: file
+    path: _data/majors.yml
+    fields:
+      - name: heading
+        label: Page heading
+        type: string
+      - name: intro
+        label: Intro text
+        type: text
+      - name: hint
+        label: Hint above the train
+        type: string
+      - name: eur_label
+        label: Station sign before the Erasmus majors
+        type: string
+      - name: elsewhere_label
+        label: Station sign before the other majors
+        type: string
+      - name: event_button
+        label: Button on every ticket (goes to events)
+        type: string
+      - name: tip
+        label: Small note at the bottom of every ticket
+        type: text
+      - name: cars
+        label: Carriages
+        type: object
+        description: One carriage per major, in train order. Keep "All majors" first, then the Erasmus majors, then the others. Renaming a carriage changes its link.
+        list:
+          collapsible:
+            collapsed: true
+            summary: "{name}"
+        fields:
+          - name: name
+            label: Name on the carriage
+            type: string
+            description: Short, about 25 characters max, so it fits on two lines.
+          - name: group
+            label: Group
+            type: select
+            options:
+              values: [all, eur, elsewhere]
+            description: "all = the first carriage, eur = taught at Erasmus, elsewhere = not taught at Erasmus"
+          - name: programmes
+            label: '"Valid for" line (which programmes count)'
+            type: string
+          - name: why
+            label: Why your major matters
+            type: text
+          - name: roles
+            label: Where you could fit
+            type: string
+            list: true
+          - name: resources
+            label: First stops (resources)
+            type: object
+            list:
+              collapsible:
+                collapsed: true
+                summary: "{label}"
+            fields:
+              - name: label
+                label: Name
+                type: string
+              - name: url
+                label: Link
+                type: string
+              - name: note
+                label: One-line description
+                type: string
