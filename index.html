@@ -27,8 +27,8 @@ layout: default
 
   <section class="band-pink" id="why">
     <div class="wrap why">
+      <h2 class="why-title">{{ c.why.heading | escape }}</h2>
       <div class="why-text">
-        <h2>{{ c.why.heading | escape }}</h2>
         {%- for p in c.why.paragraphs %}
         <p>{{ p.text | markdownify | remove: '<p>' | remove: '</p>' | strip }}</p>
         {%- endfor %}

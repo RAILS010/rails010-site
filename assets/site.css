@@ -17,7 +17,7 @@
   --focus:#4A3A38;
   --rule:#614F4D;
   --font-display:"Space Grotesk",ui-sans-serif,system-ui,sans-serif;
-  --font-pixel:"Pixelify Sans","Space Grotesk",ui-sans-serif,system-ui,sans-serif;
+  --font-tagline:"Handjet","Space Grotesk",ui-sans-serif,system-ui,sans-serif;
   --raspberry:#B8336A;            /* hero tagline: 4.9:1 on --bg */
   --sleeper:#A88C86;
   --font-body:"Figtree",ui-sans-serif,system-ui,-apple-system,"Segoe UI",sans-serif;
@@ -96,10 +96,9 @@ section{padding-block:clamp(56px,9vw,104px)}
 .hero .wrap{display:grid;gap:clamp(28px,4vw,48px);align-items:center}
 @media (min-width:960px){.hero .wrap{grid-template-columns:minmax(0,1.05fr) minmax(0,1fr)}}
 .hero-text{display:grid;gap:20px;align-content:start}
-/* three levels: small label > big pixel tagline in raspberry > body intro */
-.fullname{display:flex;align-items:center;gap:.65em;font-family:var(--font-display);font-weight:700;font-size:clamp(.92rem,1.3vw,1.05rem);line-height:1.2;letter-spacing:.09em;text-transform:uppercase;color:var(--ink-soft)}
-.fullname::before{content:"";flex:none;width:12px;height:12px;background:var(--pink);box-shadow:0 0 0 3px var(--line)}
-.lede{font-family:var(--font-pixel);font-weight:700;font-size:clamp(2.25rem,4.7vw,3.7rem);max-width:15ch;letter-spacing:0;line-height:1.06;color:var(--raspberry);text-wrap:balance}
+/* three levels: small label > big tagline in raspberry (Handjet: pixel-grid DNA, but calm enough to sit next to Space Grotesk/Figtree) > body intro */
+.fullname{font-family:var(--font-display);font-weight:700;font-size:clamp(.92rem,1.3vw,1.05rem);line-height:1.2;letter-spacing:.09em;text-transform:uppercase;color:var(--ink-soft)}
+.lede{font-family:var(--font-tagline);font-weight:600;font-size:clamp(2.6rem,5.6vw,4.4rem);max-width:13ch;letter-spacing:0;line-height:.98;color:var(--raspberry);text-wrap:balance}
 .lede-sub{font-size:var(--step-1);max-width:44ch;line-height:1.5;color:var(--ink)}
 .actions{display:flex;gap:14px;flex-wrap:wrap;margin-top:6px}
 .scene{position:relative;width:100%}
@@ -124,11 +123,16 @@ section{padding-block:clamp(56px,9vw,104px)}
 .format:nth-child(3n+3),.format:nth-child(3n+3) p{color:var(--ink)}
 .format p{color:var(--ink-soft)}
 
-/* why */
-.why{display:grid;grid-template-columns:minmax(0,1fr);gap:clamp(28px,5vw,64px)}
-@media (min-width:860px){.why{grid-template-columns:minmax(0,1.1fr) minmax(0,1fr)}}
-.why-text{display:grid;gap:18px;max-width:58ch}
-.why-text p{font-size:var(--step-0)}
+/* why: big heading top-left, audiences under it, the text on the right (stacked on phones) */
+#why{padding-block:clamp(48px,7vw,84px)}
+.why{display:grid;grid-template-columns:minmax(0,1fr);gap:clamp(24px,4vw,36px) clamp(36px,6vw,88px)}
+@media (min-width:860px){
+  .why{grid-template-columns:minmax(0,.85fr) minmax(0,1.15fr);grid-template-areas:"title text" "who text";grid-template-rows:auto 1fr}
+  .why-title{grid-area:title}.why-text{grid-area:text}.who{grid-area:who;align-self:end}
+}
+.why-title{font-size:var(--step-4);letter-spacing:-.03em;line-height:1}
+.why-text{display:grid;gap:20px;max-width:52ch;align-content:start}
+.why-text p{font-size:var(--step-1);line-height:1.5}
 .who{list-style:none;margin:0;padding:0;display:grid;gap:22px;align-content:start}
 .who li{display:grid;grid-template-columns:28px minmax(0,1fr);gap:14px;align-items:start}
 .who strong{font-family:var(--font-display);font-weight:700;display:block;font-size:var(--step-1);line-height:1.2;margin-bottom:2px}
