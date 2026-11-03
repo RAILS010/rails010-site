@@ -1,0 +1,127 @@
+heading: Resources
+intro: Free courses, funding and opportunities for getting into AI safety, whatever
+  you study. Click any card to open it.
+featured:
+  show: true
+  label: At Erasmus
+  title: Frontier AI Governance Fellowship
+  text: Weekly readings and discussions with our facilitators, from the week of 16
+    November to the week of 14 December. You get a certificate when you finish.
+  when: Weekly · 16 Nov – 14 Dec
+  button_label: Sign up
+  url: https://airtable.com/appjNAd8YnAmA37ki/pagOIeUqjOJo6LyFb/form
+  hide_after: ""
+sections:
+  - title: Start learning
+    intro: Five free online courses and fellowships from BlueDot Impact.
+    items:
+      - name: The Future of AI
+        url: https://bluedot.org/courses/future-of-ai
+        text: ""
+        tag: 2 hours · self-paced
+        hide_after: ""
+      - name: AGI Strategy
+        url: https://bluedot.org/courses/agi-strategy
+        text: ""
+        tag: 25 hours
+        hide_after: ""
+      - name: Technical AI Safety
+        url: https://bluedot.org/courses/technical-ai-safety
+        text: ""
+        tag: 30 hours
+        hide_after: ""
+      - name: Frontier AI Governance
+        url: https://bluedot.org/courses/ai-governance
+        text: ""
+        tag: 40 hours
+        hide_after: ""
+      - name: Technical AI Safety Project Sprint
+        url: https://bluedot.org/courses/technical-ai-safety-project
+        text: ""
+        tag: 30 hours of project work
+        hide_after: ""
+  - title: Get funding
+    intro: Have an idea for an event or project, or want to work on AI safety full-time?
+      Apply for a grant.
+    items:
+      - name: Rapid Grants
+        url: https://bluedot.org/grants/rapid
+        text: For events and projects. Decisions take about 5 days on average.
+        tag: Up to $20k
+        hide_after: ""
+      - name: Career Transition Grants
+        url: https://bluedot.org/grants/career-transition
+        text: Funding to go full-time on AI safety.
+        tag: Up to $200k
+        hide_after: ""
+      - name: Seed Grants
+        url: https://bluedot.org/grants/seed
+        text: Funding to found a new organisation.
+        tag: $20k – $200k
+        hide_after: ""
+  - title: Programmes and fellowships
+    intro: More free opportunities to research, learn and write.
+    items:
+      - name: SPAR
+        url: https://sparai.org/
+        text: Get paired up with a mentor to research AI risks.
+        tag: Research mentorship
+        hide_after: ""
+      - name: Global Challenges Project
+        url: https://www.globalchallengesproject.org/
+        text: Residential workshops on the risks from advanced AI and what to do about
+          them. Travel and accommodation are funded.
+        tag: Workshops
+        hide_after: ""
+      - name: SIRA Project
+        url: https://sira-project.org/
+        text: Summer research fellowship for social scientists, from undergrad to postdoc.
+        tag: Summer fellowship
+        hide_after: ""
+      - name: Transformative AI essay contest
+        url: https://substack.com/inbox/post/222655205
+        text: Write about how transformative AI will affect low- and middle-income
+          countries.
+        tag: $10,000 prize
+        hide_after: ""
+  - title: Find events, programmes and jobs
+    intro: ""
+    items:
+      - name: AISafety.com
+        url: https://aisafety.com/
+        text: Events, training programmes and job opportunities in one place.
+        tag: Directory
+        hide_after: ""
+      - name: 80,000 Hours job board
+        url: https://jobs.80000hours.org/
+        text: Jobs working on AI safety and other pressing problems.
+        tag: Jobs
+        hide_after: ""
+  - title: Watch
+    intro: ""
+    items:
+      - name: AI in Context
+        url: https://www.youtube.com/@AI_In_Context
+        text: ""
+        tag: YouTube
+        hide_after: ""
+      - name: 80,000 Hours
+        url: https://www.youtube.com/@eightythousandhours
+        text: ""
+        tag: YouTube
+        hide_after: ""
+  - title: Read
+    intro: ""
+    items:
+      - name: AI Safety Newsletter
+        url: https://newsletter.safe.ai/
+        text: AI updates for readers without a technical background.
+        tag: Newsletter
+        hide_after: ""
+      - name: Don't Worry About the Vase
+        url: https://thezvi.substack.com/
+        text: Weekly deep dives into AI developments.
+        tag: Blog
+        hide_after: ""
+cta_text: Know something that should be on this list?
+cta_button: Email us

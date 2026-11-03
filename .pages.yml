@@ -281,8 +281,98 @@ content:
         label: Button text at the bottom
         type: string
 
+  - name: resources
+    label: Resources
+    type: file
+    path: _data/resources.yml
+    fields:
+      - name: heading
+        label: Page heading
+        type: string
+      - name: intro
+        label: Intro text
+        type: text
+      - name: featured
+        label: Highlighted box at the top (pink)
+        type: object
+        description: For one thing you really want people to see, like a fellowship sign-up. Switch it off when it's over.
+        fields:
+          - name: show
+            label: Show the box
+            type: boolean
+          - name: label
+            label: Small label
+            type: string
+            description: For example "At Erasmus" or "Deadline soon".
+          - name: title
+            label: Title
+            type: string
+          - name: text
+            label: Text
+            type: text
+          - name: when
+            label: Dates (small label)
+            type: string
+          - name: button_label
+            label: Button text
+            type: string
+          - name: url
+            label: Link
+            type: string
+          - name: hide_after
+            label: Hide after (optional)
+            type: date
+            description: The box disappears by itself the day after this date.
+      - name: sections
+        label: Sections
+        type: object
+        description: Each section is a heading with a grid of clickable cards. Drag to reorder.
+        list:
+          collapsible:
+            collapsed: true
+            summary: "{title}"
+        fields:
+          - name: title
+            label: Section heading
+            type: string
+          - name: intro
+            label: Line under the heading (optional)
+            type: text
+          - name: items
+            label: Cards
+            type: object
+            list:
+              collapsible:
+                collapsed: true
+                summary: "{name}"
+            fields:
+              - name: name
+                label: Name
+                type: string
+              - name: url
+                label: Link
+                type: string
+                description: The full https:// link. Copy it from the address bar of a logged-out browser window so it works for everyone.
+              - name: text
+                label: One-line description (optional)
+                type: text
+              - name: tag
+                label: Small label (optional)
+                type: string
+                description: For example "30 hours", "Up to $20k" or "YouTube".
+              - name: hide_after
+                label: Hide after (optional)
+                type: date
+                description: For deadlines. The card disappears by itself the day after this date.
+      - name: cta_text
+        label: Text at the bottom of the page
+        type: string
+      - name: cta_button
+        label: Button text at the bottom
+        type: string
+
   - name: majors
-    label: Your major (train page)
+    label: Your major (train page, hidden for now)
     type: file
     path: _data/majors.yml
     fields:

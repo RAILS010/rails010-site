@@ -1,0 +1,94 @@
+---
+layout: default
+title: Resources
+permalink: /resources/
+description: Free courses, funding, fellowships, newsletters and job boards for getting into AI safety, collected by RAILS in Rotterdam.
+# The words and links live in _data/resources.yml (edit them in Pages CMS under "Resources").
+---
+{%- assign r = site.data.resources -%}
+{%- assign c = site.data.content -%}
+  <section class="page-head">
+    <div class="wrap">
+      <div class="intro">
+        <p class="kicker">Start here</p>
+        <h1 class="page-title">{{ r.heading | escape }}</h1>
+        {%- if r.intro != blank %}
+        <p>{{ r.intro | markdownify | remove: '<p>' | remove: '</p>' | strip }}</p>
+        {%- endif %}
+      </div>
+      {%- if r.sections.size > 1 %}
+      <nav class="res-jump" aria-label="Jump to a section">
+        {%- for s in r.sections %}
+        <a class="chip" href="#{{ s.title | slugify }}">{{ s.title | escape }}</a>
+        {%- endfor %}
+      </nav>
+      {%- endif %}
+    </div>
+  </section>
+
+  {%- assign f = r.featured %}
+  {%- if f.show and f.title != blank %}
+  <section class="res-featured-sec"{% if f.hide_after != blank %} data-until="{{ f.hide_after | date: '%Y-%m-%d' }}"{% endif %}>
+    <div class="wrap">
+      <a class="res-featured px" href="{{ f.url | escape }}" target="_blank" rel="noopener">
+        <div class="res-featured-body">
+          <div class="pe-meta">
+            {%- if f.label != blank %}<span class="chip">{{ f.label | escape }}</span>{% endif %}
+            {%- if f.when != blank %}<span class="chip white">{{ f.when | escape }}</span>{% endif %}
+          </div>
+          <h2>{{ f.title | escape }}</h2>
+          {%- if f.text != blank %}<p>{{ f.text | markdownify | remove: '<p>' | remove: '</p>' | strip_html | strip }}</p>{% endif %}
+        </div>
+        <span class="btn plain px res-featured-btn">{{ f.button_label | default: 'Open' | escape }}<svg viewBox="0 0 14 14" aria-hidden="true"><path d="M4 2h8v8h-2V5.4L3.4 12 2 10.6 8.6 4H4z" fill="currentColor"/></svg></span>
+      </a>
+    </div>
+  </section>
+  {%- endif %}
+
+  {%- for s in r.sections %}
+  <section class="res-sec" id="{{ s.title | slugify }}" aria-labelledby="{{ s.title | slugify }}-title">
+    <div class="wrap">
+      <div class="res-sec-head">
+        <h2 id="{{ s.title | slugify }}-title">{{ s.title | escape }}</h2>
+        {%- if s.intro != blank %}<p>{{ s.intro | markdownify | remove: '<p>' | remove: '</p>' | strip }}</p>{% endif %}
+      </div>
+      <ul class="res-grid">
+        {%- for i in s.items %}
+        {%- if i.name != blank and i.url != blank %}
+        {%- assign host = i.url | split: '//' | last | split: '/' | first | remove: 'www.' %}
+        <li{% if i.hide_after != blank %} data-until="{{ i.hide_after | date: '%Y-%m-%d' }}"{% endif %}>
+          <a class="res px" href="{{ i.url | escape }}"{% unless i.url contains 'mailto:' %} target="_blank" rel="noopener"{% endunless %}>
+            <span class="res-top">
+              <span class="res-host">{{ host | escape }}</span>
+              <svg class="res-arrow" viewBox="0 0 14 14" aria-hidden="true"><path d="M4 2h8v8h-2V5.4L3.4 12 2 10.6 8.6 4H4z" fill="currentColor"/></svg>
+            </span>
+            <strong class="res-name">{{ i.name | escape }}</strong>
+            {%- if i.text != blank %}<span class="res-text">{{ i.text | markdownify | remove: '<p>' | remove: '</p>' | strip_html | strip }}</span>{% endif %}
+            {%- if i.tag != blank %}<span class="chip res-tag">{{ i.tag | escape }}</span>{% endif %}
+          </a>
+        </li>
+        {%- endif %}
+        {%- endfor %}
+      </ul>
+    </div>
+  </section>
+  {%- endfor %}
+
+  <section class="band-pink">
+    <div class="wrap page-cta">
+      <p>{{ r.cta_text | default: 'Know something that should be on this list?' | escape }}</p>
+      <a class="btn px" href="mailto:{{ c.contact.email | escape }}?subject=Resource%20for%20the%20RAILS%20website">{{ r.cta_button | default: 'Email us' | escape }}</a>
+    </div>
+  </section>
+
+{% raw %}
+<script>
+// Hide anything whose "Hide after" date has passed (so old deadlines disappear without a rebuild).
+(function(){
+  var d=new Date(),today=d.getFullYear()+'-'+String(d.getMonth()+1).padStart(2,'0')+'-'+String(d.getDate()).padStart(2,'0');
+  document.querySelectorAll('[data-until]').forEach(function(el){if(el.getAttribute('data-until')<today)el.hidden=true});
+  document.querySelectorAll('.res-sec').forEach(function(s){if(!s.querySelector('li:not([hidden])'))s.hidden=true});
+  document.querySelectorAll('.res-jump a').forEach(function(a){var t=document.querySelector(a.getAttribute('href'));if(t&&t.hidden)a.hidden=true});
+})();
+</script>
+{% endraw %}

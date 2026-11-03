@@ -304,3 +304,43 @@ section{padding-block:clamp(56px,9vw,104px)}
   .sign-post{height:70px}
   .sign::after{bottom:52px;height:5px}
 }
+
+/* ===== resources ===== */
+.res-jump{display:flex;flex-wrap:wrap;gap:8px;margin-top:22px}
+.res-jump .chip{text-decoration:none;color:var(--ink);background:var(--paper);padding:.35em .75em;transition:transform .15s ease,background .15s ease}
+.res-jump .chip:hover{background:var(--pink);transform:translate(-1px,-1px)}
+.chip.white{background:var(--paper)}
+
+.res-featured-sec{padding-block:0 clamp(8px,2vw,16px)}
+.res-featured{--fill:var(--pink);--s:9px;display:grid;gap:20px 32px;padding:clamp(22px,3.6vw,38px);text-decoration:none;color:#3B2E2C;transition:transform .15s ease}
+@media (min-width:760px){.res-featured{grid-template-columns:minmax(0,1fr) auto;align-items:end}}
+.res-featured:hover{transform:translate(-2px,-2px)}
+.res-featured:hover::before{--fill:#F7C3CF}
+.res-featured-body{display:grid;gap:12px;max-width:60ch}
+.res-featured h2{font-size:var(--step-3);letter-spacing:-.025em}
+.res-featured p{font-size:var(--step-1);line-height:1.45}
+.res-featured-btn{justify-self:start;pointer-events:none}
+
+.res-sec{padding-block:clamp(36px,5.5vw,60px) 0}
+.res-sec + .band-pink{margin-top:clamp(56px,8vw,96px)}
+.res-sec-head{display:grid;gap:8px;margin-bottom:22px;padding-top:18px;border-top:var(--b) solid var(--rule)}
+.res-sec-head h2{font-size:var(--step-2);letter-spacing:-.02em}
+.res-sec-head p{color:var(--ink-soft);font-size:1.1rem;max-width:60ch}
+.res-grid{list-style:none;margin:0;padding:0;display:grid;gap:16px;grid-template-columns:repeat(auto-fill,minmax(min(100%,250px),1fr))}
+.res-grid li{display:grid}
+.res{--fill:var(--paper);--s:6px;display:flex;flex-direction:column;gap:6px;padding:18px 20px 20px;text-decoration:none;color:var(--ink);min-height:100%;transition:transform .15s ease}
+.res:hover{transform:translate(-2px,-2px);text-decoration:none}
+.res:hover::before{--fill:var(--bg-pink)}
+.res:active{transform:translate(1px,1px)}
+.res-top{display:flex;justify-content:space-between;align-items:center;gap:10px}
+.res-host{font-size:.86rem;color:var(--ink-soft);overflow:hidden;text-overflow:ellipsis;white-space:nowrap}
+.res-arrow{width:14px;height:14px;flex:none;color:var(--line);transition:transform .15s ease}
+.res:hover .res-arrow{transform:translate(2px,-2px)}
+.res-name{font:700 var(--step-1)/1.2 var(--font-display);letter-spacing:-.01em;text-wrap:balance}
+.res-text{color:var(--ink-soft);font-size:.98rem;line-height:1.5}
+.res-tag{align-self:flex-start;margin-top:auto;font-size:.84rem}
+.res-text,.res-name:has(+ .res-tag){margin-bottom:8px}
+/* every other section gets light-blue cards so the page doesn't read as one long list */
+.res-sec:nth-of-type(even) .res{--fill:var(--bg-tint)}
+.res-sec:nth-of-type(even) .res:hover::before{--fill:var(--bg-pink)}
+.res-sec:nth-of-type(odd) .res-tag{background:var(--bg-pink)}
