@@ -5,8 +5,9 @@ announcement:
 hero:
   full_name: Rotterdam AI Literacy & Safety
   tagline: Let's prevent AI from going off the rails.
-  intro: We're a student-run community dedicated to understanding AI and the risks
-    that come with it. Bring your curiosity. No tech background needed!
+  intro: We're a student-run community dedicated to understanding AI and
+    mitigating the risks that come with it. Bring your curiosity. No tech
+    background needed!
   primary_button: See upcoming events
   secondary_button: Get involved
 why:
