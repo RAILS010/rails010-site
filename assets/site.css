@@ -17,7 +17,7 @@
   --focus:#4A3A38;
   --rule:#614F4D;
   --font-display:"Space Grotesk",ui-sans-serif,system-ui,sans-serif;
-  --font-tagline:"Handjet","Space Grotesk",ui-sans-serif,system-ui,sans-serif;
+  --font-tagline:"Jersey 10","Space Grotesk",ui-sans-serif,system-ui,sans-serif;
   --raspberry:#B8336A;            /* hero tagline: 4.9:1 on --bg */
   --sleeper:#A88C86;
   --font-body:"Figtree",ui-sans-serif,system-ui,-apple-system,"Segoe UI",sans-serif;
@@ -96,9 +96,9 @@ section{padding-block:clamp(56px,9vw,104px)}
 .hero .wrap{display:grid;gap:clamp(28px,4vw,48px);align-items:center}
 @media (min-width:960px){.hero .wrap{grid-template-columns:minmax(0,1.05fr) minmax(0,1fr)}}
 .hero-text{display:grid;gap:20px;align-content:start}
-/* three levels: small label > big tagline in raspberry (Handjet: pixel-grid DNA, but calm enough to sit next to Space Grotesk/Figtree) > body intro */
+/* three levels: small label > big pixel tagline in raspberry (Jersey 10) > body intro */
 .fullname{font-family:var(--font-display);font-weight:700;font-size:clamp(.92rem,1.3vw,1.05rem);line-height:1.2;letter-spacing:.09em;text-transform:uppercase;color:var(--ink-soft)}
-.lede{font-family:var(--font-tagline);font-weight:600;font-size:clamp(2.6rem,5.6vw,4.4rem);max-width:13ch;letter-spacing:0;line-height:.98;color:var(--raspberry);text-wrap:balance}
+.lede{font-family:var(--font-tagline);font-weight:400;font-size:clamp(2.75rem,5.9vw,4.6rem);max-width:13ch;letter-spacing:.005em;line-height:.86;color:var(--raspberry);text-wrap:balance}
 .lede-sub{font-size:var(--step-1);max-width:44ch;line-height:1.5;color:var(--ink)}
 .actions{display:flex;gap:14px;flex-wrap:wrap;margin-top:6px}
 .scene{position:relative;width:100%}
@@ -174,8 +174,7 @@ section{padding-block:clamp(56px,9vw,104px)}
 .page-head{padding-block:clamp(20px,4vw,48px) clamp(28px,4vw,44px)}
 .page-head .intro{margin-bottom:0}
 .page-title{font-size:var(--step-4);letter-spacing:-.025em}
-.kicker{font-family:var(--font-display);font-weight:700;font-size:.95rem;letter-spacing:.09em;text-transform:uppercase;color:var(--ink-soft);display:flex;align-items:center;gap:.65em}
-.kicker::before{content:"";width:12px;height:12px;background:var(--sky);box-shadow:0 0 0 3px var(--line)}
+.kicker{font-family:var(--font-display);font-weight:700;font-size:.95rem;letter-spacing:.09em;text-transform:uppercase;color:var(--ink-soft)}
 .page-cta{display:grid;gap:16px;justify-items:start}
 .page-cta p{font-size:var(--step-1);max-width:46ch}
 
