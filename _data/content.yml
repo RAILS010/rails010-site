@@ -4,7 +4,7 @@ announcement:
   link: "#events"
 hero:
   full_name: Rotterdam AI Literacy & Safety
-  tagline: We want to prevent AI from going off the rails.
+  tagline: Let's prevent AI from going off the rails.
   intro: We're a student-run community dedicated to understanding AI and the risks
     that come with it. Bring your curiosity. No tech background needed!
   primary_button: See upcoming events
@@ -16,17 +16,20 @@ why:
         risky they are. Some of them have quit their jobs over it. Meanwhile,
         most of us use these tools every day without much idea of how they work.
     - text: You shouldn't need a computer science degree to have a say in how AI
-        develops, or to help make it go well. RAILS welcomes students from every
+        develops, or to help make it go well. RAILS welcomes people from every
         background who want to learn more about this technology and help it turn
         out well for humanity.
+    - text: "AI Safety is a male-dominated field. We want to encourage and empower
+        more women and non-binary people to help make AI work well. "
   audiences:
     - title: Students at EUR
       text: Bachelor's, master's or PhD, from any faculty.
     - title: Anyone in Rotterdam
-      text: Not at Erasmus? Most of our events are open to everyone. Bring a friend.
+      text: Not a student at EUR? Most of our events are open to everyone. Bring a
+        friend!
 what_we_do:
   heading: What we do
-  intro: We run 1–2 events a month during the academic year.
+  intro: We organize 1–2 events a month during the academic year.
   formats:
     - title: Workshops
       text: Learn what AI safety is and keep up with the latest in AI, including
@@ -34,7 +37,7 @@ what_we_do:
       coming_soon: false
     - title: Speakers
       text: Hear from researchers and professionals working on AI safety, from
-        technical research to operations, then chat with them afterwards.
+        technical research to operations.
       coming_soon: false
     - title: Discussion group
       text: Read a paper or book together and share your ideas on it. Groups meet
