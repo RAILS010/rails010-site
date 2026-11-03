@@ -28,7 +28,7 @@ description: Free courses, funding, fellowships, newsletters and job boards for 
 
   {%- assign f = r.featured %}
   {%- if f.show and f.title != blank %}
-  <section class="res-featured-sec"{% if f.hide_after != blank %} data-until="{{ f.hide_after | date: '%Y-%m-%d' }}"{% endif %}>
+  <section class="res-featured-sec"{% if f.hide_after != blank and f.hide_after != "" %} data-until="{{ f.hide_after | date: '%Y-%m-%d' }}"{% endif %}>
     <div class="wrap">
       <a class="res-featured px" href="{{ f.url | escape }}" target="_blank" rel="noopener">
         <div class="res-featured-body">
@@ -56,7 +56,7 @@ description: Free courses, funding, fellowships, newsletters and job boards for 
         {%- for i in s.items %}
         {%- if i.name != blank and i.url != blank %}
         {%- assign host = i.url | split: '//' | last | split: '/' | first | remove: 'www.' %}
-        <li{% if i.hide_after != blank %} data-until="{{ i.hide_after | date: '%Y-%m-%d' }}"{% endif %}>
+        <li{% if i.hide_after != blank and i.hide_after != "" %} data-until="{{ i.hide_after | date: '%Y-%m-%d' }}"{% endif %}>
           <a class="res px" href="{{ i.url | escape }}"{% unless i.url contains 'mailto:' %} target="_blank" rel="noopener"{% endunless %}>
             <span class="res-top">
               <span class="res-host">{{ host | escape }}</span>
@@ -86,7 +86,7 @@ description: Free courses, funding, fellowships, newsletters and job boards for 
 // Hide anything whose "Hide after" date has passed (so old deadlines disappear without a rebuild).
 (function(){
   var d=new Date(),today=d.getFullYear()+'-'+String(d.getMonth()+1).padStart(2,'0')+'-'+String(d.getDate()).padStart(2,'0');
-  document.querySelectorAll('[data-until]').forEach(function(el){if(el.getAttribute('data-until')<today)el.hidden=true});
+  document.querySelectorAll('[data-until]').forEach(function(el){var u=(el.getAttribute('data-until')||'').slice(0,10);if(/^\d{4}-\d{2}-\d{2}$/.test(u)&&u<today)el.hidden=true});
   document.querySelectorAll('.res-sec').forEach(function(s){if(!s.querySelector('li:not([hidden])'))s.hidden=true});
   document.querySelectorAll('.res-jump a').forEach(function(a){var t=document.querySelector(a.getAttribute('href'));if(t&&t.hidden)a.hidden=true});
 })();
