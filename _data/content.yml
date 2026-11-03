@@ -15,15 +15,14 @@ why:
     - text: The people building the most advanced AI systems openly disagree about how
         risky they are. Some of them have quit their jobs over it. Meanwhile,
         most of us use these tools every day without much idea of how they work.
-    - text: You shouldn't need a computer science degree to have a say in how AI
-        develops, or to help make it go well. RAILS welcomes people from every
-        background who want to learn more about this technology and help it turn
-        out well for humanity.
-    - text: "AI Safety is a male-dominated field. We want to encourage and empower
-        more women and non-binary people to help make AI work well. "
+    - text: You shouldn't need a CS degree to have a say in how AI develops. RAILS
+        welcomes people from all backgrounds who want to learn more about this
+        technology and help it go well for humanity.
+    - text: "AI Safety is male-dominated. We want to encourage and empower more women
+        and non-binary people to build context and enter the field. "
   audiences:
     - title: Students at EUR
-      text: Bachelor's, master's or PhD, from any faculty.
+      text: Bachelor's, master's, or PhD.
     - title: Anyone in Rotterdam
       text: Not a student at EUR? Most of our events are open to everyone. Bring a
         friend!
