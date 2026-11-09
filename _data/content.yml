@@ -69,11 +69,11 @@ get_involved:
       button_label: Email us
       button_link: mailto:hello@rails010.nl?subject=Helping%20out%20at%20RAILS
       button_colour: white
-    - title: Collaborate with us
-      text: "Do you have an idea for an event on AI Safety? We'd love to hear from
-        you. "
-      button_label: Collaborate
-      button_link: mailto:hello@rails010.nl
+    - title: Book a meeting with the Founder of RAILS
+      text: Do you have an idea for an event on AI Safety? We'd love to hear from
+        you.
+      button_label: Book a meeting
+      button_link: https://calendly.com/anhthule6326/30min
       button_colour: white
 contact:
   heading: Say hi
