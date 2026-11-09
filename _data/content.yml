@@ -70,8 +70,8 @@ get_involved:
       button_link: mailto:hello@rails010.nl?subject=Helping%20out%20at%20RAILS
       button_colour: white
     - title: Book a meeting with the Founder of RAILS
-      text: Do you have an idea for an event on AI Safety? We'd love to hear from
-        you.
+      text: Do you want to discuss how to start contributing to AI safety? Talk with
+        us.
       button_label: Book a meeting
       button_link: https://calendly.com/anhthule6326/30min
       button_colour: white
