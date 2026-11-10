@@ -19,9 +19,8 @@ why:
     - text: You shouldn't need a CS degree to have a say in how AI develops. RAILS
         welcomes people from all backgrounds who want to learn more about this
         technology and help it go well for humanity.
-    - text: "AI safety is a male-dominated field. We want to encourage and empower
-        more women and non-binary people to build context for what's happening
-        and enter the field. "
+    - text: "AI safety is male-dominated. We want to encourage and empower women and
+        non-binary people to care about this topic and enter the field. "
   audiences:
     - title: Students and researchers at EUR
     - title: Anyone in Rotterdam
